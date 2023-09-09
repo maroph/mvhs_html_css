@@ -37,14 +37,14 @@ Boxmodell und weitere CSS-Besonderheiten; Barrierefreiheit und Benutzerfreundlic
 
 
 ## Entwicklungsumgebungen
-* [PhpStorm](https://www.jetbrains.com/phpstorm/")
-* [WebStorm](https://www.jetbrains.com/webstorm/")
-* [Visual Studio Code](https://code.visualstudio.com/")
-* [VSCodium](https://vscodium.com/")
+* [PhpStorm](https://www.jetbrains.com/phpstorm/)
+* [WebStorm](https://www.jetbrains.com/webstorm/)
+* [Visual Studio Code](https://code.visualstudio.com/)
+* [VSCodium](https://vscodium.com/)
 
 ## Lokale Testumgebung
 Als lokale Testumgebung kann man
-[XAMPP](https://www.apachefriends.org/")
+[XAMPP](https://www.apachefriends.org/)
 verwenden. Das __X__ steht dabei für das
 Betriebssystem. Unterstützt werden die 
 Betriebssysteme
@@ -54,19 +54,19 @@ Betriebssysteme
 * Windows
 
 ## Weiterführende Literatur
-* [Einstieg in HTML und CSS](https://www.amazon.de/dp/3836290898")
-* [HTML &amp; CSS für Dummmies](https://www.amazon.de/dp/3527720146")
-* [HTML und CSS: Das umfassende Handbuch zum Lernen und Nachschlagen](https://www.amazon.de/dp/3836297280")
+* [Einstieg in HTML und CSS](https://www.amazon.de/dp/3836290898)
+* [HTML &amp; CSS für Dummmies](https://www.amazon.de/dp/3527720146)
+* [HTML und CSS: Das umfassende Handbuch zum Lernen und Nachschlagen](https://www.amazon.de/dp/3836297280)
 
 ## Links
 
 ### Spezifikationen
 * [CSS](https://www.w3.org/Style/CSS/Overview.html)
-* [HTML5](shttps://html.spec.whatwg.org/)
+* [HTML5](https://html.spec.whatwg.org/)
 
 ### Dokumentationen/Tutorials
 * [Canvas Tutorial](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial)
-* [CSS Tricks](https://css-tricks.com/) target="_blank" rel="noreferrer">
+* [CSS Tricks](https://css-tricks.com/)
 * [MDN Web Docs](https://developer.mozilla.org/en-US/)
 * [SELFHTML](https://wiki.selfhtml.org/)
 * [Smashing Magazine](https://www.smashingmagazine.com/)
@@ -96,4 +96,4 @@ Betriebssysteme
 * [Tables Generator](https://www.tablesgenerator.com/html_tables)
 * [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
 * [W3C HTML Validator](https://validator.w3.org/)
-* [XAMPP](href="https://www.apachefriends.org/)
+* [XAMPP](https://www.apachefriends.org/)

@@ -60,7 +60,7 @@ Betriebssysteme
 
 ## Links
 
-### Spezifikationen
+### Standards
 * [CSS](https://www.w3.org/Style/CSS/Overview.html)
 * [HTML5](https://html.spec.whatwg.org/)
 

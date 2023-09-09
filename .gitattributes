@@ -1,0 +1,15 @@
+.* export-ignore
+#
+* text=auto
+#
+*.css  text
+*.html text
+*.js   text
+*.md   text
+#
+*.ico binary
+*.jpg binary
+*.png binary
+*.pdf   binary
+*.ttf   binary
+*.woff2 binary

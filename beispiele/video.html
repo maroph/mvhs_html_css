@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beispiel: Video</title>
+    <meta name="author" content="Manfred Rosenboom">
+    <meta name="description" content="MVHS: HTML und CSS - Grundkurs">
+    <meta name="keywords" content="HTML, CSS">
+    <meta name="robots" content="all">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/HTML5_Logo_32.png">
+    <link rel="stylesheet" href="../assets/css/modern-normalize.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<header>
+    <h1>Beispiel: Video</h1>
+</header>
+
+<main>
+    <section>
+        <h2>HTML5 Video Player</h2>
+        <p>
+            Song: <a href="LHC_Collider_Lyrics.html" target="_blank">Collider</a>  performed by the <a href="https://musiclub.web.cern.ch/MusiClub/bands/cernettes/" target="_blank" rel="noreferrer">Les Horribles Cernettes</a>.
+        </p>
+
+        <video id="video" controls="controls" preload="metadata" poster="./LHC2.jpg" width="450" height="360" style="border:2px solid black;background-color: #000000;">
+            <source src="./LHC_Collider.ogv" type="video/ogg"/>
+            <source src="./LHC_Collider.mp4" type="video/mp4"/>
+            <track src="./LHC_Collider_en.vtt" kind="subtitles" srclang="en" label="English"/>
+            Your browser does not support the HTML5 &lt;video&gt; element.
+        </video>
+
+        <p>
+            Courtsey by <a href="https://musiclub.web.cern.ch/MusiClub/bands/cernettes/" rel="copyright" target="_blank" rel="noreferrer">Les Horribles Cernettes</a>.
+        </p>
+    </section>
+</main>
+
+<footer>
+    <hr>
+    <a href="https://validator.w3.org/check/referer" target="_blank"><img src="../assets/images/valid-html5-blue.png" alt="valid HTML5 code" title="valid HTML5 code"></a>&nbsp;&nbsp;
+    <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img src="../assets/images/valid-css-blue.png" alt="valid CSS code" title="valid CSS code"></a><br>
+    <a rel="license,nofollow" href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank"><img src="../assets/images/cc-by-sa-88x31.png" alt="CC-BY-SA 4.0" title="CC-BY-SA 4.0"></a>&nbsp;&nbsp;
+    (c) 2023, <a href="https://maroph.github.io/" target="_blank" rel="noreferrer">Manfred Rosenboom</a> (<a href="mailto:maroph@pm.me">maroph@pm.me</a>)
+</footer>
+</body>
+</html>

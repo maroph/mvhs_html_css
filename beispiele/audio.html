@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beispiel: Audio</title>
+    <meta name="author" content="Manfred Rosenboom">
+    <meta name="description" content="MVHS: HTML und CSS - Grundkurs">
+    <meta name="keywords" content="HTML, CSS">
+    <meta name="robots" content="all">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/HTML5_Logo_32.png">
+    <link rel="stylesheet" href="../assets/css/modern-normalize.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<header>
+    <h1>Beispiel: Audio</h1>
+</header>
+
+<main>
+    <section>
+        <h2>HTML5 Audio Player</h2>
+        <p>
+            Song: <a href="LHC_Collider_Lyrics.html" target="_blank">Collider</a>  performed by the <a href="https://musiclub.web.cern.ch/MusiClub/bands/cernettes/" target="_blank" rel="noreferrer">Les Horribles Cernettes</a>.
+        </p>
+
+        <audio id="player" controls="controls" preload="metadata" style="border:2px solid black;background-color: #95B9C7;">
+            <source src="./LHC_Collider.mp3" type="audio/mp3">
+            <source src="./LHC_Collider.ogg" type="audio/ogg">
+            Your browser does not support the audio tag.
+        </audio><br/>
+        <button onclick="document.getElementById('player').play()">Play</button>
+        <button onclick="document.getElementById('player').pause()">Pause</button>
+        <button onclick="audioVolumeUp();">Vol+ </button>
+        <button onclick="audioVolumeDown();">Vol- </button>
+        <hr style="margin-left:0px;width:400px;">
+
+        <p>
+            Courtsey by <a href="https://musiclub.web.cern.ch/MusiClub/bands/cernettes/" target="blank" rel="noreferrer">Les Horribles Cernettes</a>.
+        </p>
+    </section>
+</main>
+
+<footer>
+    <hr>
+    <a href="https://validator.w3.org/check/referer" target="_blank"><img src="../assets/images/valid-html5-blue.png" alt="valid HTML5 code" title="valid HTML5 code"></a>&nbsp;&nbsp;
+    <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img src="../assets/images/valid-css-blue.png" alt="valid CSS code" title="valid CSS code"></a><br>
+    <a rel="license,nofollow" href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank"><img src="../assets/images/cc-by-sa-88x31.png" alt="CC-BY-SA 4.0" title="CC-BY-SA 4.0"></a>&nbsp;&nbsp;
+    (c) 2023, <a href="https://maroph.github.io/" target="_blank" rel="noreferrer">Manfred Rosenboom</a> (<a href="mailto:maroph@pm.me">maroph@pm.me</a>)
+</footer>
+
+<script>
+    var player = document.getElementById('player');
+    function audioVolumeUp() {
+        if (player.paused) {
+            return;
+        }
+        var volume = player.volume;
+        volume += 0.1;
+        if (volume > 1) {
+            volume = 1;
+        }
+        player.volume = volume;
+    }
+    function audioVolumeDown() {
+        if (player.paused) {
+            return;
+        }
+        var volume = player.volume;
+        volume -= 0.1;
+        if (volume < 0) {
+            volume = 0;
+        }
+        player.volume = volume;
+    }
+</script>
+</body>
+</html>

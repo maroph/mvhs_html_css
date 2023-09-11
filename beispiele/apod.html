@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beispiel: XMLHttpRequest Objekt</title>
+    <meta name="author" content="Manfred Rosenboom">
+    <meta name="description" content="MVHS: HTML und CSS - Grundkurs">
+    <meta name="keywords" content="HTML, CSS">
+    <meta name="robots" content="all">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/HTML5_Logo_32.png">
+    <link rel="stylesheet" href="../assets/css/modern-normalize.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<header>
+    <h1>Beispiel: XMLHttpRequest Objekt</h1>
+</header>
+
+<main>
+    <section>
+        <h2>APOD: Astronomy Picture of the Day Archive</h2>
+        <p>
+            Abfrage des <a href="https://apod.nasa.gov/apod/archivepix.html" target="_blank" rel="noreferrer">APOD Archive</a>s
+            (APOD: Astronomy Picture of the Day Archive) mit dem
+            <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest" target="_blank" rel="noreferrer">XMLHttpRequest</a>
+            Objekt.
+        </p>
+        <form method="get" action="#">
+            <label for="datePicker">Datum</label>
+            <input type="date" id="datePicker" name="date" min="2000-01-01" max="2023-09-11">&nbsp;&nbsp;<input type="button" value="Bild anzeigen" id="submit">
+        </form>
+        <div>
+            <div id="title"></div>
+            <img id="picture" src="" alt="APOD" >
+            <div id="picture_text"></div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <hr>
+    <a href="https://validator.w3.org/check/referer" target="_blank"><img src="../assets/images/valid-html5-blue.png" alt="valid HTML5 code" title="valid HTML5 code"></a>&nbsp;&nbsp;
+    <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img src="../assets/images/valid-css-blue.png" alt="valid CSS code" title="valid CSS code"></a><br>
+    <a rel="license,nofollow" href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank"><img src="../assets/images/cc-by-sa-88x31.png" alt="CC-BY-SA 4.0" title="CC-BY-SA 4.0"></a>&nbsp;&nbsp;
+    (c) 2023, <a href="https://maroph.github.io/" target="_blank" rel="noreferrer">Manfred Rosenboom</a> (<a href="mailto:maroph@pm.me">maroph@pm.me</a>)
+</footer>
+
+<script>
+    const apod_base_url = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=";
+    const datePicker = document.getElementById('datePicker');
+    datePicker.value = new Date().toISOString().split("T")[0];
+    datePicker.max = datePicker.value;
+    const submitButton = document.getElementById('submit');
+    submitButton.addEventListener('click', loadPicture);
+    const title = document.getElementById('title');
+    const image = document.getElementById('picture');
+    const description = document.getElementById('picture_text');
+
+
+
+    function loadPicture(event) {
+        let apod_url = apod_base_url + datePicker.value;
+        let xhr = new XMLHttpRequest();
+
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                let response = JSON.parse(xhr.responseText);
+                title.innerHTML = '<h2>' + response.title + '</h2>'
+                if ((response.url !== undefined) && (response.url !== "")) {
+                    image.src = response.url;
+                } else {
+                    image.src = "";
+                }
+                if ((response.title !== undefined) && (response.title !== "")) {
+                    image.title = response.title;
+                } else {
+                    image.title = "";
+                }
+                if (image.src !== "") {
+                    image.style = 'border: 1px solid black;';
+                } else {
+                    image.style = '';
+                }
+                if ((response.explanation !== undefined) && (response.explanation !== "")) {
+                    description.innerHTML = '<h3>Description</h3><p>' + response.explanation + '</p>';
+                } else {
+                    description.innerHTML = '';
+                }
+                if ((response.copyright !== undefined) && (response.copyright !== '')) {
+                    description.innerHTML += '<p><strong>Copyright: </strong>' + response.copyright + '</p>';
+                }
+            } else {
+                if (xhr.status != 0) {
+                    title.innerHTML = '<p><strong>Error: ' + xhr.status + '</strong></p>';
+                    image.src = '';
+                    image.title='';
+                    image.style='';
+                    description.innerHTML = '';
+                }
+            }
+        };
+
+        xhr.onerror = function() {
+            title.innerHTML = "<p><strong>Request failed</strong></p>";
+            image.src = '';
+            image.title='';
+            image.style='';
+            description.innerHTML = '';
+        };
+
+        xhr.open('GET', apod_url, true);
+        xhr.send();
+    }
+</script>
+</body>
+</html>

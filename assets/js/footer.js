@@ -6,7 +6,10 @@ for (const char of window.location.pathname) {
 }
 if (window.location.pathname.startsWith('/projects/')) {
     count -= 3;
-} else {
+} else if (window.location.pathname.startsWith('/mvhs_html_css/')) {
+    count -= 2;
+}
+else {
     count -= 1;
 }
 if (count < 0) {

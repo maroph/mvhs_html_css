@@ -23,12 +23,12 @@ if (count > 0) {
     }
 }
 //
-/**/
+/*
 document.writeln('<pre>');
 document.writeln('window.location.pathname : ' + window.location.pathname);
 document.writeln('dirprefix                : ' + dirprefix);
 document.writeln('</pre>');
-/**/
+*/
 //
 document.writeln('<footer>');
 document.writeln('<hr>');

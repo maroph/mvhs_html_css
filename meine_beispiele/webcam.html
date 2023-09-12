@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beispiel: Web Cam Streaming</title>
+    <meta name="author" content="Manfred Rosenboom">
+    <meta name="description" content="MVHS: HTML und CSS - Grundkurs">
+    <meta name="keywords" content="HTML, CSS">
+    <meta name="robots" content="all">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/HTML5_Logo_32.png">
+    <link rel="stylesheet" href="../assets/css/modern-normalize.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<header>
+    <h1>Beispiel: Web Cam Streaming</h1>
+</header>
+
+<main>
+    <section>
+        <p>
+            Ein einfaches Beispiel, wie man das HTML5 video Tag nutzen kann, um den Stream einer Web Cam
+            anzuzeigen.
+        </p>
+        <p>
+            <video id="video" poster="https://picsum.photos/seed/picsum/320/240.jpg" width="320" height="240" style="border: 1px solid black;">
+                Your browser does not support the HTML5 &lt;video&gt; element.
+            </video>
+            <canvas  width="320" height="240" title="Hier klicken, um ein Snapshot des Videostreams zu erzeugen" style="border: 1px solid black;"></canvas><br/>
+            <button onclick="document.getElementById('video').play()">Start</button>
+            <button onclick="document.getElementById('video').pause()">Stop</button>
+            <a href="#" download="snapshot.png" onclick="createImageData(this);">Download Snapshot</a><br/>
+        </p>
+    </section>
+</main>
+
+<script src="../assets/js/footer.js"></script>
+
+<script>
+    let video  = document.getElementById('video');
+    let canvas = document.querySelector('canvas');
+    let ctx    = canvas.getContext('2d');
+
+    ctx.fillText("Hier klicken, um ein Snapshot des Videostreams zu erzeugen", 20, 120);
+
+    function snapshot() {
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+    }
+    canvas.addEventListener('click', snapshot, false);
+
+    function createImageData(atag) {
+        atag.href = canvas.toDataURL();
+    }
+
+    function onSuccess(stream) {
+        let source;
+
+        video.autoplay = false;
+
+        if (navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia({ video: true, audio:false })
+                    .then(function (stream) {
+                        video.srcObject = stream;
+                    })
+                    .catch(function (err0r) {
+                        console.log("Something went wrong!");
+                    });
+        }
+    }
+
+    function onError() {
+        console.log("getUserMedia API not supported, or another application is using the webcam !");
+    }
+
+    navigator.getUserMedia = (navigator.getUserMedia ||
+            navigator.webkitGetUserMedia ||
+            navigator.mozGetUserMedia ||
+            navigator.msGetUserMedia);
+    if (navigator.getUserMedia) {
+        navigator.getUserMedia({video:true, audio:false}, onSuccess, onError);
+    }
+</script>
+</body>
+</html>

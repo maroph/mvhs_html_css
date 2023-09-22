@@ -1,0 +1,7 @@
+@charset "UTF-8";
+html {
+    font-family: "Courier New", monospace, sans-serif;
+    font-size: 1em;
+    margin: 10px;
+    width: 60%;
+}

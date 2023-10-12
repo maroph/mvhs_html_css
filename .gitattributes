@@ -7,10 +7,20 @@ template.html export-ignore
 *.html text
 *.js   text
 *.md   text
+*.txt  text
+*.vtt  text
 #
-*.ico binary
-*.jpg binary
-*.png binary
+*.gif   binary
+*.ico   binary
+*.jpg   binary
+*.gz    binary
+*.mp3   binary
+*.mp4   binary
+*.ogg   binary
+*.ogv   binary
+*.png   binary
 *.pdf   binary
+*.tar   binary
 *.ttf   binary
 *.woff2 binary
+*.zip   binary

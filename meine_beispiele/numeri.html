@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numeri: 0-100</title>
+    <meta name="author" content="Manfred Rosenboom">
+    <meta name="description" content="MVHS: HTML und CSS - Grundkurs">
+    <meta name="keywords" content="HTML, CSS">
+    <meta name="robots" content="all">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/HTML5_Logo_32.png">
+    <link rel="stylesheet" href="../assets/css/modern-normalize.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        body {
+            min-width: 300px;
+            color: black;
+        }
+        input[type=text] {
+            background-color: #e0e0e0;
+        }
+        #number {
+            width: 2em;
+        }
+        #word {
+            width: 16em;
+            background-color: #ffffff;        }
+        #wordCorrect {
+            width: 16em;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Esempio: I numeri</h1>
+</header>
+
+<main>
+    <section>
+        <form id="numberForm">
+            <input type="text" id="number" readonly="readonly" value="" maxlength="3"/>
+            <input type="text" id="word"  placeholder="numero" pattern="[ éa-z-]{1,16}" value="" required="required" maxlength="18"/>
+            <input type="text" id="wordCorrect" readonly="readonly" value="" maxlength="18"/><br/>
+            <input type="submit" value="controllo"/><button id="next">prossimo</button>
+        </form>
+    </section>
+</main>
+
+<script>
+    let numeri = {};
+    numeri.idNumberForm  = document.getElementById('numberForm');
+    numeri.idNumber      = document.getElementById('number');
+    numeri.idWord        = document.getElementById('word');
+    numeri.idNext        = document.getElementById('next');
+    numeri.idWordCorrect = document.getElementById('wordCorrect');
+    numeri.number        = -1;
+    numeri.word          = '';
+    numeri.chiffres = [
+        "zero",
+        "uno",
+        "due",
+        "tre",
+        "quattro",
+        "cinque",
+        "sei",
+        "sette",
+        "otto",
+        "nove",
+        "dieci",
+        "undici",
+        "dodici",
+        "tredici",
+        "quattordici",
+        "quindici",
+        "sedici",
+        "diciassette",
+        "diciotto",
+        "diciannove",
+        "venti",
+        "ventuno",
+        "ventidue",
+        "ventitré",
+        "ventiquattro",
+        "venticinque",
+        "ventisei",
+        "ventisette",
+        "ventotto",
+        "ventinove",
+        "trenta",
+        "trentuno",
+        "trentadue",
+        "trentatré",
+        "trentaquattro",
+        "trentacinque",
+        "trentasei",
+        "trentasette",
+        "trentotto",
+        "trentanove",
+        "quaranta",
+        "quarantuno",
+        "quarantadue",
+        "quarantatré",
+        "quarantaquattro",
+        "quarantacinque",
+        "quarantasei",
+        "quarantasette",
+        "quarantotto",
+        "quarantanove",
+        "cinquanta",
+        "cinquantuno",
+        "cinquantadue",
+        "cinquantatré",
+        "cinquantaquattro",
+        "cinquantacinque",
+        "cinquantasei",
+        "cinquantasette",
+        "cinquantotto",
+        "cinquantanove",
+        "sessanta",
+        "sessantuno",
+        "sessantadue",
+        "sessantatré",
+        "sessantaquattro",
+        "sessantacinque",
+        "sessantasei",
+        "sessantasette",
+        "sessantotto",
+        "sessantanove",
+        "settanta",
+        "settantuno",
+        "settantadue",
+        "settantatré",
+        "settantaquattro",
+        "settantacinque",
+        "settantasei",
+        "settantasette",
+        "settantotto",
+        "settantanove",
+        "ottanta",
+        "ottantuno",
+        "ottantadue",
+        "ottantatré",
+        "ottantaquattro",
+        "ottantacinque",
+        "ottantasei",
+        "ottantasette",
+        "ottantotto",
+        "ottantanove",
+        "novanta",
+        "novantuno",
+        "novantadue",
+        "novantatré",
+        "novantaquattro",
+        "novantacinque",
+        "novantasei",
+        "novantasette",
+        "novantotto",
+        "novantanove",
+        "cento"
+    ];
+
+    function chooseNumber(event) {
+        if (event) { event.preventDefault(); }
+        numeri.idWordCorrect.style.color = 'black';
+        numeri.idWordCorrect.value = '';
+        numeri.idWord.value = '';
+
+        let idx = Math.floor((Math.random()*101));
+        if (idx < 0)   idx = 0;
+        if (idx > 100) idx = 100;
+        numeri.number = idx;
+        numeri.word   = numeri.chiffres[idx];
+        numeri.idNumber.value = idx;
+        numeri.idWord.focus();
+    }
+
+    function checkNumber(event) {
+        if (event) { event.preventDefault(); }
+
+        if (numeri.idWord.value.trim() !== numeri.word) {
+            numeri.idWordCorrect.style.color = 'red';
+            numeri.idWordCorrect.value = numeri.word;
+            numeri.idWord.focus();
+        } else {
+            numeri.idWordCorrect.style.color = 'green';
+            numeri.idWordCorrect.value = 'correto';
+            numeri.idNext.focus();
+        }
+
+        return false;
+    }
+
+    if (!String.prototype.trim) {
+        String.prototype.trim = function () {
+            return this.replace(/^\s+|\s+$/g,'');
+        };
+    }
+
+    numeri.idWord.setAttribute('autocomplete', 'off');
+    numeri.idNumberForm.addEventListener('submit', checkNumber, false);
+    numeri.idNext.addEventListener('click', chooseNumber, false);
+
+    chooseNumber();
+</script>
+<script src="../assets/js/footer.js"></script>
+</body>
+</html>

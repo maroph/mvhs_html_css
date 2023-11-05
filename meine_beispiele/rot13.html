@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beispiel: ROT13</title>
+    <meta name="author" content="Manfred Rosenboom">
+    <meta name="description" content="MVHS: HTML und CSS - Grundkurs">
+    <meta name="keywords" content="HTML, CSS">
+    <meta name="robots" content="all">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/HTML5_Logo_32.png">
+    <link rel="stylesheet" href="../assets/css/modern-normalize.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header>
+    <h1>Beispiel: ROT13</h1>
+</header>
+
+<main>
+    <section>
+        <p>
+            <a href="https://de.wikipedia.org/wiki/ROT13" target="_blank" rel="noreferrer">Wikipedia:ROT13</a>
+        </p>
+        <form>
+            <textarea id="textarea" name="textarea" rows="10" cols="70" wrap="soft" placeholder="Tastatur oder Zwischenablage"></textarea><br/>
+            <input type="button" id="cryptDecrypt" value="ROT13 Ver-/Entschlüsselung"/>
+        </form>
+    </section>
+</main>
+
+<script>
+    let textarea = document.getElementById('textarea');
+    let cryptDecrypt = document.getElementById('cryptDecrypt');
+
+    cryptDecrypt.addEventListener('mousedown', rot13);
+
+    function rot13(event) {
+        let keycode    = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        let text       = textarea.value;
+        let text_rot13 = "";
+
+        for (let i = 0; i < text.length; i++) {
+            let codechar = text.substring(i, i + 1)
+            let pos = keycode.indexOf(codechar.toUpperCase())
+
+            if (pos >= 0) {
+                pos      = (pos + keycode.length / 2) % keycode.length
+                codechar = (codechar === codechar.toUpperCase()) ?
+                        keycode.substring(pos, pos + 1) :
+                        keycode.substring(pos, pos + 1).toLowerCase()
+            }
+            text_rot13 = text_rot13 + codechar
+        }
+        textarea.value = text_rot13
+    }
+</script>
+<script src="../assets/js/footer.js"></script>
+</body>
+</html>

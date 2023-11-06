@@ -1,7 +1,10 @@
 # MVHS: HTML und CSS - Grundkurs
 Das Repository [maroph/mvhs_html_css](https://github.com/maroph/mvhs_html_css)
 enthält meine Daten zum MVHS Kurs
-"HTML und CSS - Grundkurs".
+"HTML und CSS - Grundkurs". Die Daten im Repository stehen als
+GitHub Pages unter 
+[maroph.github.io/mvhs_html_css](https://maroph.github.io/mvhs_html_css/)
+zur Verfügung.
 
 ## Kurs
 ### Kursdaten
@@ -34,21 +37,32 @@ Boxmodell und weitere CSS-Besonderheiten; Barrierefreiheit und Benutzerfreundlic
 | Dienstag | 05.12.2023 | 18:00 – 21:00 Uhr |
 | Dienstag | 12.12.2023 | 18:00 – 21:00 Uhr |
 
-
-
 ## Entwicklungsumgebungen
+Hier einige Entwicklungsumgebungen:
+
+* [Eclipse IDE for PHP Developers](https://eclipse.dev/pdt/)
 * [PhpStorm](https://www.jetbrains.com/phpstorm/)
 * [WebStorm](https://www.jetbrains.com/webstorm/)
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [VSCodium](https://vscodium.com/)
 
-## Lokale Testumgebung
-Als lokale Testumgebung kann man
-[XAMPP](https://www.apachefriends.org/)
-verwenden. Das __X__ steht dabei für das
-Betriebssystem. Unterstützt werden die 
-Betriebssysteme
+Für meine Webprojekte verwende ich __PhpStorm__.
 
-* Linux
-* Mac OS X
-* Windows
+## Lokale Testumgebung
+Als lokale Testumgebung verwende ich 
+[XAMPP](https://www.apachefriends.org/) mit PHP 8.2 Support.
+
+Die Zeichen stehen für 
+
+|        |                                          |
+|--------|------------------------------------------|
+| __X__  | Betriebsystem (Linux, Mac OS X, Windows) |                                |
+| __A__  | Apache Webserver                         |
+| __M__  | MySQL                                    |
+| __P__  | Perl                                     |
+| __P__  | PHP                                      |
+
+## Webhosting
+Da im Kurs nur HTML, CSS und JavaScript verwendet werden,
+kann man die Seiten einfach als 
+[GitHub Pages](https://pages.github.com/) veröffentlichen.

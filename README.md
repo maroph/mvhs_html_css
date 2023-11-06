@@ -40,11 +40,12 @@ Boxmodell und weitere CSS-Besonderheiten; Barrierefreiheit und Benutzerfreundlic
 ## Entwicklungsumgebungen
 Hier einige Entwicklungsumgebungen:
 
+* [Apache NetBeans](https://netbeans.apache.org/)
 * [Eclipse IDE for PHP Developers](https://eclipse.dev/pdt/)
 * [PhpStorm](https://www.jetbrains.com/phpstorm/)
-* [WebStorm](https://www.jetbrains.com/webstorm/)
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [VSCodium](https://vscodium.com/)
+* [WebStorm](https://www.jetbrains.com/webstorm/)
 
 Für meine Webprojekte verwende ich __PhpStorm__.
 
@@ -52,15 +53,19 @@ Für meine Webprojekte verwende ich __PhpStorm__.
 Als lokale Testumgebung verwende ich 
 [XAMPP](https://www.apachefriends.org/) mit PHP 8.2 Support.
 
-Die Zeichen stehen für 
+XAMPP steht für 
 
-|        |                                          |
-|--------|------------------------------------------|
-| __X__  | Betriebsystem (Linux, Mac OS X, Windows) |                                |
-| __A__  | Apache Webserver                         |
-| __M__  | MySQL                                    |
-| __P__  | Perl                                     |
-| __P__  | PHP                                      |
+|        |                                           |
+|--------|-------------------------------------------|
+| __X__  | Betriebssystem (Linux, Mac OS X, Windows) |                                |
+| __A__  | Apache Webserver                          |
+| __M__  | MariaDB                                   |
+| __P__  | PHP                                       |
+| __P__  | Perl                                      |
+
+Damit steht einem alles zur Verfügung, was man zum Testen 
+seiner Webseiten benötigt. Für den Kurs wird von XAMPP nur
+der Apache Webserver benötigt.
 
 ## Webhosting
 Da im Kurs nur HTML, CSS und JavaScript verwendet werden,

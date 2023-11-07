@@ -1,1 +1,209 @@
 @charset "UTF-8";
+/*
+ * Author      : Manfred Rosenboom
+ * Last Update : Tue, 7 Nov 2023 16:04 CET
+ * ---
+ *
+ * Einige CSS Erkenntnisse in dieser Datei verdanke ich dem Buch
+ *
+ * Florence Maurice
+ * HTML & CSS für Dummies
+ * Wiley-VCH, 2. Ausgabe, 12.10.2022
+ * ISBN-10 : 3527720146
+ * ISBN-13 : 978-3527720149
+ * https://www.amazon.de/dp/3527720146
+ *
+ */
+body {
+    width: 95%;
+    min-width: 320px;
+    margin: 5px auto;
+    color: #000000;
+    background-color: #ffffff;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 100%;
+    font-weight: normal;
+}
+
+body>header {
+    background-color: #f0f0f0;
+    padding: 3px;
+    margin-bottom: 10px;
+    border: 2px solid #c0c0c0;
+    border-radius: 12px;
+}
+
+header h1 {
+    margin: 0 0 5px 0;
+    padding: 0;
+    color: black;
+    font-weight: bold;
+    font-size: 220%;
+    /* text-transform: uppercase; */
+}
+
+header h1 a {
+    text-decoration:none;
+    padding-bottom: 2px;
+    border-bottom: solid 1px black;
+}
+
+header h2 {
+    color: black;
+    font-weight: bold;
+    font-size: 140%;
+    margin: 0;
+    padding-bottom: 2px;
+}
+
+main {
+    display: block;
+    float: left;
+    width: 100%;
+}
+
+section {
+    float: left;
+    width: 98%;
+    min-width: 200px;
+    margin-bottom: 20px;
+}
+
+article {
+    padding-left: 0.5em;
+    width: 98%;
+    min-width: 200px;
+}
+
+footer {
+    background-color: #f0f0f0;
+    border: 2px solid #c0c0c0;
+    border-radius: 12px;
+    clear: both;
+    float: none;
+    font-size: 80%;
+    margin-bottom: 1em;
+    padding: 5px;
+}
+
+form:invalid input[type=submit] {
+    opacity: 0.5;
+}
+
+
+/*
+ * Die Basis für den table CSS Code habe ich mit Hilfe der
+ * folgenden Seite erzeugt:
+ * https://www.cssportal.com/html-table-generator/
+ */
+table {
+    width: auto;
+    background-color: #FFFFFF;
+    border-collapse: collapse;
+    border-width: 1px;
+    border-color: #000000;
+    border-style: solid;
+    color: #000000;
+}
+table caption {
+    text-align: center;
+}
+table thead {
+    background-color: #F9F9F9;
+}
+table td, table th {
+    border-width: 1px;
+    border-color: #000000;
+    border-style: solid;
+    padding: 5px;
+    text-align:left;
+}
+table th {
+    font-weight: bold;
+}
+table tfoot {
+    background-color: #F9F9F9;
+    text-align:center;
+}
+table tfoot td {
+    text-align:center;
+}
+table tfoot th {
+    text-align:center;
+    font-weight: bold;
+}
+
+
+/*
+ *
+ */
+@media screen and (max-width: 530px) {
+    main {
+        width: 98%;
+    }
+
+    article, section {
+        width: auto;
+    }
+
+    aside {
+        float: left;
+        width: auto;
+    }
+}
+
+
+/*
+ * CSS print style. Based on
+ * HTML5 Bones 1.7.2
+ * http://html5bones.com/
+ * https://github.com/iandevlin/html5bones/blob/v1.7.2/css/styles.css
+ */
+/* ---------------------------------------------------------
+   Print styles
+   ---------------------------------------------------------*/
+@media print {
+    * {
+        color:#000 !important;
+        box-shadow:none !important;
+        text-shadow:none !important;
+        background:none !important;
+    }
+    html {
+        background-color:#fff;
+    }
+    header h1 a[href]:after { content: ""; }
+    header h1 a[href] {
+        font-weight: bold;
+        text-decoration: none;
+        color:#06c;
+        border:none;
+    }
+    footer a[href]:after { content: ""; }
+    footer a[href] {
+        font-weight: bold;
+        text-decoration: none;
+        color:#06c;
+        border:none;
+    }
+    /* Hide navigation */
+    nav { display:none; }
+
+    /* Show link destinations in brackets after the link text */
+    a[href]:after { content: " (" attr(href) ") "; }
+    a[href] {
+        font-weight:bold;
+        text-decoration:underline;
+        color:#06c;
+        border:none;
+    }
+    /* Don't show link destinations for JavaScript or internal links */
+    a[href^="javascript:"]:after, a[href^="#"]:after {
+        content:"";
+    }
+
+    /* Show abbr title value in brackets after the text */
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+}

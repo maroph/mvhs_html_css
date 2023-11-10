@@ -37,37 +37,3 @@ Boxmodell und weitere CSS-Besonderheiten; Barrierefreiheit und Benutzerfreundlic
 | Dienstag | 05.12.2023 | 18:00 – 21:00 Uhr |
 | Dienstag | 12.12.2023 | 18:00 – 21:00 Uhr |
 
-## Entwicklungsumgebungen
-Hier einige Entwicklungsumgebungen:
-
-* [Apache NetBeans](https://netbeans.apache.org/)
-* [Eclipse IDE for PHP Developers](https://eclipse.dev/pdt/)
-* [PhpStorm](https://www.jetbrains.com/phpstorm/)
-* [Visual Studio Code](https://code.visualstudio.com/)
-* [VSCodium](https://vscodium.com/)
-* [WebStorm](https://www.jetbrains.com/webstorm/)
-
-Für meine Webprojekte verwende ich __PhpStorm__.
-
-## Lokale Testumgebung
-Als lokale Testumgebung verwende ich 
-[XAMPP](https://www.apachefriends.org/) mit PHP 8.2 Support.
-
-XAMPP steht für 
-
-|        |                                           |
-|--------|-------------------------------------------|
-| __X__  | Betriebssystem (Linux, Mac OS X, Windows) |                                |
-| __A__  | Apache Webserver                          |
-| __M__  | MariaDB                                   |
-| __P__  | PHP                                       |
-| __P__  | Perl                                      |
-
-Damit steht einem alles zur Verfügung, was man zum Testen 
-seiner Webseiten benötigt. Für den Kurs wird von XAMPP nur
-der Apache Webserver benötigt.
-
-## Webhosting
-Da im Kurs nur HTML, CSS und JavaScript verwendet werden,
-kann man die Seiten einfach als 
-[GitHub Pages](https://pages.github.com/) veröffentlichen.

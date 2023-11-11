@@ -39,5 +39,5 @@ document.write('<a href="https://jigsaw.w3.org/css-validator/validator?uri=');
 document.write(window.location);
 document.writeln('" target="_blank"><img src="' + dirprefix + '/assets/images/valid-css-blue.png" alt="valid CSS code" title="valid CSS code"></a><br>');
 document.writeln('<a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank"><img src="' + dirprefix + '/assets/images/cc-by-sa-88x31.png" alt="CC-BY-SA 4.0" title="CC-BY-SA 4.0"></a>&nbsp;&nbsp;');
-document.write('(c) 2023, <a href="https://maroph.github.io/" target="_blank" rel="noreferrer">Manfred Rosenboom</a> (<a href="https://muenchen.social/@maroph" rel="nofollow" target="_blank">Fediverse</a>)');
+document.write('(c) 2023, <a href="https://maroph.github.io/" target="_blank" rel="noreferrer">Manfred Rosenboom</a>, Mastodon: <a href="https://muenchen.social/@maroph" rel="nofollow" target="_blank">@maroph@muenchen.social</a>');
 document.writeln('</footer>');

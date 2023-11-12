@@ -31,7 +31,6 @@ document.writeln('</pre>');
 */
 //
 document.writeln('<footer>');
-document.writeln('<hr>');
 document.write('<a href="https://validator.w3.org/nu/?doc=');
 document.write(window.location);
 document.writeln('" target="_blank"><img src="' + dirprefix + '/assets/images/valid-html5-blue.png" alt="valid HTML5 code" title="valid HTML5 code"></a>&nbsp;&nbsp;');

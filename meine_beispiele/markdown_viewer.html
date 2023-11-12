@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beispiel: Markdown Viewer</title>
+    <meta name="author" content="Manfred Rosenboom">
+    <meta name="description" content="Lade eine Markdown Datei und zeige sie als HTML Code an">
+    <meta name="keywords" content="HTML, JavaScript, Markdown">
+    <meta name="robots" content="all">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/HTML5_Logo_32.png">
+    <link rel="stylesheet" href="../assets/css/modern-normalize.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="../assets/js/marked-9.1.6.min.js"></script>
+    <script src="../assets/js/purify-3.0.6.js"></script>
+    <style>
+        code {
+            background-color: #f0f0f0;
+        }
+        label {
+            font-style: italic;
+        }
+        hr {
+            border: none;
+            height: 2px;
+            color: black;
+            background-color: black;
+        }
+        .inpborder {
+            margin-top: 10px;
+            border: 2px solid black;
+            padding: 5px;
+            width: fit-content;
+            height: fit-content;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Beispiel: Markdown Viewer</h1>
+</header>
+
+<main>
+    <section>
+        <p>
+            Mit dem JavaScript
+            <a href="https://developer.mozilla.org/en-US/docs/Web/API/FileReader" rel="nofollow" target="_blank">FileReader</a>
+            API wird eine
+            <a href="https://de.wikipedia.org/wiki/Markdown" rel="nofollow" target="_blank">Markdown</a>
+            Datei eingelesen, der Inhalt in HTML umgewandelt und angezeigt.
+        </p>
+
+        <details>
+            <summary>Benutzte JavaScript Bibliotheken</summary>
+            <ul>
+                <li><a href="https://marked.js.org/" rel="nofollow" target="_blank">Marked</a> 9.1.6</li>
+                <li><a href="https://github.com/cure53/DOMPurify" rel="nofollow" target="_blank">DOMPurify</a> 3.0.6</li>
+            </ul>
+        </details>
+
+        <div class="inpborder">
+            <!-- -->
+            <code>
+                &lt;!-- <br>
+                &lt;label for=&quot;fileInput&quot;&gt;Markdown Datei auswählen (*.md, max. 100kb)&lt;/label&gt;&lt;br&gt; <br>
+                &lt;input type=&quot;file&quot; id=&quot;fileInput&quot; accept=&quot;.md&quot;&gt; <br>
+                --&gt; <br>
+            </code>
+            <!-- -->
+            <!-- Begin Comment
+            <label for="fileInput">Markdown Datei auswählen (*.md, max. 100kb)</label><br>
+            <input type="file" id="fileInput" accept=".md">
+            End Comment -->
+        </div>
+
+        <p>
+            Die HTML Elemente label und input sind auf dieser Seite auskommentiert. Ein funktionsfähiges Beispiel findet man hier:
+            <a href="https://jsfiddle.net/maroph/8rn0xog6/14/" rel="nofollow" target="_blank">jsFiddle: Markdown Viewer</a>.
+        </p>
+
+        <details>
+            <summary>HTML Elemente label, input entkommentieren</summary>
+            <p>
+                Einfach die beiden Zeilen <br>
+                &lt;!-- Begin Comment <br>
+                End Comment --&gt; <br>
+                &nbsp;<br>
+                abändern in <br>
+                &nbsp;<br>
+                &lt;!-- Begin Comment --&gt; <br>
+                &lt;!-- End Comment --&gt; <br>
+            </p>
+        </details>
+
+        <hr>
+        <div id="output">HTML Output</div>
+        <hr>
+    </section>
+</main>
+
+<script src="../assets/js/footer.js"></script>
+
+<script>
+    let fileInput = document.getElementById('fileInput');
+    if (fileInput) {
+        fileInput.addEventListener('change', handleFileSelect);
+    }
+
+    function handleFileSelect(event) {
+        const file = event.target.files[0];
+
+        if (!file) {
+            return;
+        }
+
+        /* maximale Dateigröße: 100 kb */
+        if (file.size > 102400) {
+            alert("Datei ist zu groß");
+            this.value = "";
+            return;
+        }
+
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+            const markdownContent = e.target.result;
+            document.getElementById('output').innerHTML = DOMPurify.sanitize(marked.parse(markdownContent));
+        };
+
+        reader.readAsText(file);
+    }
+</script>
+
+</body>
+</html>

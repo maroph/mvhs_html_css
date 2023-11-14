@@ -6,7 +6,7 @@
     <title>Beispiel: Font Embedding</title>
     <meta name="author" content="Manfred Rosenboom">
     <meta name="description" content="MVHS: HTML und CSS - Grundkurs">
-    <meta name="keywords" content="HTML, CSS">
+    <meta name="keywords" content="HTML, CSS, Font">
     <meta name="robots" content="all">
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/HTML5_Logo_32.png">
     <link rel="stylesheet" href="../assets/css/modern-normalize.css">
@@ -14,10 +14,12 @@
     <link rel="stylesheet" href="../assets/css/jetbrainsmono.css"/>
     <style>
         /*
-         * Nutze JetBrains Mono als Default Font.
+         * Nutze den Font "JetBrains Mono" als Default Font.
+         * Der Font "Courier New" dient als Fallback, falls der
+         * gewünschte Font nicht geladen werden kann.
          */
         html {
-            font-family: 'JetBrains Mono';
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
             font-size: 100%;
             font-weight: normal;
         }
@@ -31,11 +33,13 @@
 
 <main>
     <section>
-        <h2>Font: JetBrains Mono</h2>
+        <h2>JetBrains Mono</h2>
         <p>
             JetBrains Mono ist der Default Font, der IDE <a href="https://www.jetbrains.com/phpstorm/" target="_blank" rel="noreferrer">PhpStorm</a>.
             Auf dieser Seite wird gezeigt, wie man diesen Font in einer Webseite verwenden kann.
         </p>
+
+        <h3>JetBrains Mono Lizenz</h3>
         <p>
             <strong>Zitat von der JetBrains Mono Site</strong><br/>
             JetBrains Mono typeface is available under the
@@ -44,15 +48,77 @@
             purposes. You do not need to give credit to JetBrains, although we will appreciate
             it very much if you do.
         </p>
-        <p>Links</p>
+
+        <h2>Webfont Format erzeugen</h2>
+        <p>
+            Auf der
+            <a href="https://www.jetbrains.com/lp/mono/" target="_blank" rel="noreferrer">JetBrains Mono</a>
+            Seite oder auf der
+            <a href="https://fonts.google.com/specimen/JetBrains+Mono?query=jetbrains" target="_blank" rel="noreferrer">Google Fonts JetBrains Mono</a>
+            Seite kann man die Daten des Fonts im
+            <a href="https://de.wikipedia.org/wiki/TrueType" target="_blank" rel="noreferrer">TrueType</a>
+            (TTF) Format herunterladen. Für eine Webseite werden diese Daten aber im
+            <a href="https://en.wikipedia.org/wiki/Web_Open_Font_Format" target="_blank" rel="noreferrer">WOFF2</a>
+            benötigt.
+        </p>
+
+        <p>
+            Ist der Font in der
+            <a href="https://fonts.google.com/" target="_blank" rel="noreferrer">Google Fonts</a>
+            Sammlung enthalten (trifft für JetBrains Mono zu), kann man mit Hilfe des Tools
+            <a href="https://gwfh.mranftl.com/fonts/" target="_blank" rel="noreferrer">Google Fonts Helper</a>
+            direkt die WOFF2 Datei erzeugen. Ist der Font nicht Teil der Google Fonts Sammlung, kann man z.B. mit Hilfe
+            des Tools
+            <a href="https://cloudconvert.com/ttf-to-woff2" target="_blank" rel="noreferrer">TTF to WOFF2 Converter</a>
+            eine WOFF2 Datei erzeugen.
+        </p>
+
+        <h2>Webfont verwenden</h2>
+        <p>
+            Mit der CSS
+            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face" target="_blank" rel="noreferrer">@font-face</a>
+            Anweisung wird der Font der Webseite zur Verfügung gestellt.
+        </p>
+
+        <pre><code>
+@font-face {
+    font-display: swap;
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: normal;
+    src: url('.../jetbrains-mono-v18-latin_latin-ext-regular.woff2') format('woff2');
+}
+        </code></pre>
+
+        <p>
+            Zusätzlich muss die Nutzung des Fonts beschrieben sein. Will man, wie in diesem Beispiel, den Font
+            auf der gesamten Webseite verwenden, kann man z.B. folgendes schreiben.
+        </p>
+
+        <pre><code>
+html {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 100%;
+    font-weight: normal;
+}
+        </code></pre>
+
+        <p>
+            Hier sind 'Courier New' und monospace Fallbacks für den Fall, das der gewünschte Font nicht geladen
+            werden kann.
+        </p>
+
+        <h2>Links</h2>
         <ul>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face" target="_blank" rel="noreferrer">CSS: @font-face</a></li>
             <li><a href="https://www.jetbrains.com/lp/mono/" target="_blank" rel="noreferrer">JetBrains Mono Site</a></li>
             <li><a href="https://github.com/JetBrains/JetBrainsMono" target="_blank" rel="noreferrer">GitHub: JetBrains Mono</a></li>
+            <li><a href="https://fonts.google.com/" target="_blank" rel="noreferrer">Google Fonts</a></li>
             <li><a href="https://fonts.google.com/specimen/JetBrains+Mono?query=jetbrains" target="_blank" rel="noreferrer">Google Fonts: JetBrains Mono</a></li>
+            <li><a href="https://gwfh.mranftl.com/fonts/" target="_blank" rel="noreferrer">Google Fonts Helper</a></li>
             <li><a href="https://gwfh.mranftl.com/fonts/jetbrains-mono?subsets=latin,latin-ext" target="_blank" rel="noreferrer">Google Fonts Helper: JetBrains Mono</a></li>
+            <li><a href="https://cloudconvert.com/ttf-to-woff2" target="_blank" rel="noreferrer">TTF to WOFF2 Converter</a></li>
         </ul>
-
-        <p style="font-family: 'Courier New';">Man kann auch einfach <strong>Courier New</strong> verwenden. Dieser Font ist auf den meisten Systemen verfügbar.</p>
     </section>
 </main>
 

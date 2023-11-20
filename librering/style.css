@@ -1,6 +1,6 @@
 @charset "UTF-8";
 html {
-    font-family: "Courier New", monospace, sans-serif;
+    font-family: "Courier New", Courier, monospace;
     font-size: 1em;
     margin: 10px;
     width: 60%;

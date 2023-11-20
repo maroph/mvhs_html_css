@@ -3,34 +3,17 @@ My LibreRing based webring JavaScript file.
 Created for HTML5 pages.
 ---
 Author      : Manfred Rosenboom (https://maroph.github.io/)
-Last update : 2023-09-25T15:05+02:00
+Last update : 2023-11-20T10:13+01:00
 ---
 My script is based on the template file https://libre.town/creative/development/librering-template.js
-
-LIBRERING is a simple javascript webring script.
-Copyright 2023: Lian B. of Libre.Town
-https://libre.town/creative/development/librering.xhtml
-    
-- This program is free software: you can redistribute it and/or modify
-  it under the terms of the GNU Lesser General Public License as published
-  by the Free Software Foundation, either version 3 of the License, or
-  (at your option) any later version.
-- This program is distributed in the hope that it will be useful, but
-  WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
-  or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License
-  for more details.
-- You should have received a copy of the GNU Lesser General Public License along
-  with this program. If not, see https://www.gnu.org/licenses/lgpl-3.0
-  See also https://choosealicense.com/licenses/lgpl-3.0/
 */
 const librering_url = "https://libre.town/creative/development/librering.xhtml";
 const librering_maroph_baseurl  = "https://maroph.github.io/mvhs_html_css/librering/";
 //const librering_maroph_baseurl  = "https://maroph.github.io/";
 
-/* Last update of member list: 2023-09-25T14:49+02:00 */
+/* Last update of member list: 2023-11-19T11:46+01:00 */
 const librering_maroph_members = [
-    'https://maroph.github.io/mvhs_html_css/',
-    'http://localhost/projects/mvhs_html_css/'
+    'https://maroph.github.io/mvhs_html_css/'
 ]
 
 const librering_maroph_ringurl  = librering_maroph_baseurl + "index.html";
@@ -56,9 +39,12 @@ if (librering_maroph_displayElement) {
 
     if (librering_maroph_siteIndex === -1) {
         librering_maroph_displayElement.innerHTML =
-            '<p style="border: 2px solid black; color: red;"><strong>The librering_maroph lookup has failed to find you in the member list.<br>' +
-            'Please contact the webring administrator for support if you are the webmaster of this ' +
-            'site and believe this is an error.</strong></p>';
+            '<p style="display: inline-block; border: 2px solid black; padding: 5px; color: red;"><strong>' +
+            'The LibreRing maroph lookup has failed to find you in the member list.<br>' +
+            'Please contact the webring administrator at ' +'<a href="' +
+            librering_maroph_baseurl + '" rel="nofollow" target="_blank">LibreRing maroph</a> ' +
+            'for support if you are the webmaster of this site and believe this is an error.' +
+            '</strong></p>';
     } else {
         let librering_maroph_beforeID;
         let librering_maroph_afterID;

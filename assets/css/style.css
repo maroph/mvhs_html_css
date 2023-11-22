@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*
  * Author      : Manfred Rosenboom
- * Last Update : Wed, 22 Nov 2023 09:58 CET
+ * Last Update : Wed, 22 Nov 2023 10:17 CET
  * ---
  *
  * Einige CSS Erkenntnisse in dieser Datei verdanke ich dem Buch
@@ -58,12 +58,10 @@ header h2 {
 
 main {
     display: block;
-    float: left;
     width: 100%;
 }
 
 section {
-    float: left;
     width: 98%;
     min-width: 200px;
     margin-bottom: 20px;

@@ -50,7 +50,7 @@
             return;
         }
 
-        let escaped = '<pre><code>\n';
+        let escaped = '';
         for (let i = 0; i < code.length; i++) {
             let codechar = code.substring(i, i + 1)
             switch (codechar) {
@@ -61,7 +61,7 @@
                 default : escaped += codechar; break;
             }
         }
-        escaped += '\n</code></pre>';
+        escaped += '\n';
         taOutput.value = escaped;
     }
 

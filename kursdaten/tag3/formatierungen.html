@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HTML5 Vorlage">
+    <meta name="keywords" content="HTML5">
+    <title>Erste CSS Formatierungen</title>
+    <style>
+        body {
+            /*
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-family: 'Courier New', Courier, monospace;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+            font-family:'Times New Roman', Times, serif
+            font-family: Arial, Helvetica, sans-serif;
+            */
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            /*
+            font-size: 1.0rem;
+            font-size: 120%;
+            */
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+        }
+
+        h2 {
+            background-color: blue;
+            color: white;
+        }
+
+        p {
+            /* background-color: green; */
+            /* background-color: #0f0f0f; */
+            background-color: rgba(15, 15, 15, 0.5);
+            color: white;
+            line-height: 2.0;
+            text-indent: 2.0rem;
+        }
+
+        .warnung {
+            background-color: red;
+            font-style: italic;
+            border: 10px solid black;
+        }
+
+        nav a {
+            color: green;
+            font-weight: bold;
+            font-style: italic;
+            font-variant: small-caps;
+        }
+        /* allgemein für Links */
+        a {
+
+        }
+        /* für die normalen Links */
+        a:link {
+        }
+        /* für besuchte Links */
+        a:visited {
+        }
+        /* für Links, die den Fokus per Tastatur erhalten */
+        a:focus {
+
+        }
+        /* beim Überfahren mit der Maus */
+        a:hover {
+
+        }
+        /* für aktivierte Links */
+        a:active {
+            
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav><a href="#">Link in nav Element</a></nav><br>
+        <a href="#">Link nicht in nav Element</a>
+        <h1>Tag 3: Erste CSS Formatierungen</h1>
+    </header>
+
+    <section>
+        <h2>H2 Überschrift</h2>
+        <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+            Cum
+            sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+
+        <p>
+            Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec
+            pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+        </p>
+
+        <h2>H2 Überschrift</h2>
+        <p>
+            In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
+            Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo
+            ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis,
+            feugiat a,
+        </p>
+
+        <p class="warnung">
+            Warnung!
+        </p>
+
+        <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+            Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis ...
+            <a href="#">Link1</a>
+            <a href="#">Link2</a>
+            <a href="https://nowhere.com/">nowhere.com</a>
+        </p>
+    </section>
+
+    <footer>
+        &copy; 2023
+    </footer>
+
+</body>
+
+</html>

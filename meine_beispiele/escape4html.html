@@ -3,74 +3,132 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beispiel: Escape für HTML</title>
+    <title>Beispiel: Escape Code für HTML</title>
     <meta name="author" content="Manfred Rosenboom">
-    <meta name="description" content="Escape Code/Text für HTML">
+    <meta name="description" content="Escape Code für HTML">
     <meta name="keywords" content="HTML, CSS, JavaScript">
     <meta name="robots" content="all">
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/HTML5_Logo_32.png">
     <link rel="stylesheet" href="../assets/css/modern-normalize.css">
     <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        fieldset {
+            width: fit-content;
+        }
+        legend {
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
 
 <header>
-    <h1>Beispiel: Escape Code/Text für HTML</h1>
+    <h1>Beispiel: Escape Code für HTML</h1>
 </header>
 
 <main>
     <section>
-        <form>
-            <label for="input">Code/Text</label><br>
-            <textarea id="input" name="input" rows="10" cols="70" wrap="soft" placeholder="Tastatur oder Zwischenablage"></textarea><br/>
-            <input type="button" id="escape" value="Escape"/>&nbsp;&nbsp;<input type="button" id="clear" value="Alles löschen"/><br>
-            <p>&nbsp;</p>
-            <label for="output">Escaped Code/Text</label><br>
+        <form action="#" onsubmit="escapeText(); return false;" onreset="clearText();">
+            <fieldset>
+                <legend>Eingabe</legend>
+                <label for="input">Code (max. 2048 Zeichen)</label><br>
+                <textarea id="input" name="input" rows="10" cols="70" wrap="soft" required="required" minlength="5" maxlength="2048"
+                          placeholder="Eingabe über Tastatur oder Zwischenablage"></textarea><br/>
+                <input type="submit" id="escape" value="Escape"/>&nbsp;&nbsp;
+                <input type="reset" id="clear" value="Alles löschen"/>&nbsp;&nbsp;&nbsp;&nbsp;
+                <label for="cb_pre" title="add pre tag"><input type="checkbox" id="cb_pre" value="pre"> pre</label>&nbsp;&nbsp;
+                <label for="cb_code" title="add code tag"><input type="checkbox" id="cb_code" value="code"> code</label><br>
+            </fieldset>
+        </form>
+
+        <p>&nbsp;</p>
+
+        <fieldset>
+            <legend>Ausgabe</legend>
+            <label for="output">Escaped Code</label><br>
             <textarea id="output" name="output" rows="10" cols="70" wrap="soft" disabled="disabled"></textarea><br/>
             <input type="button" id="cpClipboard" value="Clipboard" title="kopiere die Daten ins Clipboard"/><br>
-        </form>
+        </fieldset>
     </section>
 </main>
 
 <script>
-    let taInput = document.getElementById('input');
-    let btnEscape = document.getElementById('escape');
-    let btnClear = document.getElementById('clear');
-    let taOutput = document.getElementById('output');
-    let btnCpClipboard = document.getElementById('cpClipboard');
+    const taInput = document.getElementById('input');
+    const cb_pre = document.getElementById('cb_pre');
+    const cb_code = document.getElementById('cb_code');
+    const taOutput = document.getElementById('output');
+    const btnCpClipboard = document.getElementById('cpClipboard');
 
-    btnEscape.addEventListener('mousedown', escapeText);
-    btnClear.addEventListener('mousedown', clearText);
     btnCpClipboard.addEventListener('mousedown', copy2Clipboard);
+    btnCpClipboard.disabled = true;
+    taInput.focus();
 
-    function escapeText(event) {
+    function escapeText() {
         let code = taInput.value;
         if (code === '') {
             taOutput.value = '';
+            btnCpClipboard.disabled = true;
             return;
         }
 
         let escaped = '';
+        if (cb_pre.checked) {
+            escaped += '<pre>';
+        }
+        if (cb_code.checked) {
+            escaped += '<code>';
+        }
+        if (cb_pre.checked || cb_code.checked) {
+            escaped += '\n';
+        }
+
         for (let i = 0; i < code.length; i++) {
             let codechar = code.substring(i, i + 1)
             switch (codechar) {
-                case '"': escaped += "&quot;"; break;
-                case '<': escaped += "&lt;"; break;
-                case '>': escaped += "&gt;"; break;
-                case '&': escaped += "&amp;"; break;
-                default : escaped += codechar; break;
+                case '"':
+                    escaped += "&quot;";
+                    break;
+                case '<':
+                    escaped += "&lt;";
+                    break;
+                case '>':
+                    escaped += "&gt;";
+                    break;
+                case '&':
+                    escaped += "&amp;";
+                    break;
+                default :
+                    escaped += codechar;
+                    break;
             }
         }
+
         escaped += '\n';
+        if (cb_code.checked) {
+            escaped += '</code>';
+        }
+        if (cb_pre.checked) {
+            escaped += '</pre>';
+        }
+        if (cb_pre.checked || cb_code.checked) {
+            escaped += '\n';
+        }
         taOutput.value = escaped;
+        btnCpClipboard.disabled = false;
     }
 
-    function clearText(event) {
+    function clearText() {
         taInput.value = '';
         taOutput.value = '';
+        cb_pre.checked = false;
+        cb_code.checked = false;
+        btnCpClipboard.disabled = true;
     }
 
-    function copy2Clipboard(event) {
+    function copy2Clipboard() {
+        if (taOutput.value === '') {
+            return;
+        }
         // https://www.w3schools.com/howto/howto_js_copy_clipboard.asp
         taOutput.select();
         taOutput.setSelectionRange(0, 99999); // For mobile devices

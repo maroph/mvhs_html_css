@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beispiel: input Types</title>
+    <meta name="author" content="Manfred Rosenboom">
+    <meta name="description" content="MVHS: HTML und CSS - Grundkurs">
+    <meta name="keywords" content="HTML, CSS">
+    <meta name="robots" content="all">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/HTML5_Logo_32.png">
+    <link rel="stylesheet" href="../assets/css/modern-normalize.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        form {
+            width: 95%;
+            padding: 5px;
+            border: 1px solid black;
+        }
+        div {
+            margin: 5px;
+            border: 1px solid black;
+            height: auto;
+        }
+        label {
+            float: left;
+            width: 30%;
+        }
+        input {
+            width: 65%;
+        }
+        input:focus-within {
+            background-color: #f0f0f0;
+        }
+        input[type="submit"], input[type="reset"] {
+            width: 35%;
+            margin: 5px;
+        }
+        input[type="submit"] {
+            float: left;
+        }
+        input[type="reset"] {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+<header>
+    <h1>Beispiel: input Types</h1>
+</header>
+
+<main>
+    <section>
+        <p>
+            Diese Seite zeigt Beispiele für die Input Types, die auf der Seite
+            <a href="https://www.w3schools.com/html/html_form_input_types.asp" target="_blank" rel="noreferrer">W3Schools: HTML Input Types</a>
+            beschrieben sind:
+        </p>
+        <form method="post" action="#" onsubmit="return false;">
+            <div>
+                <label for="fhidden">Type: hidden</label>
+                <input type="hidden" id="fhidden" name="hidden" value="42"><br/>
+            </div>
+            <div>
+                <label for="fbutton">Type: button</label>
+                <input type="button" id="fbutton" onclick="alert('Hallo!');" value="Klick hier"/>
+            </div>
+            <div>
+                Type: checkbox<br/>
+                <label for="checkbox_vehicle1"> I have a bike</label>
+                <input type="checkbox" id="checkbox_vehicle1" name="vehicle1" value="Bike"/>
+                <label for="checkbox_vehicle2"> I have a car</label>
+                <input type="checkbox" id="checkbox_vehicle2" name="vehicle2" value="Car"/>
+                <label for="checkbox_vehicle3"> I have a boat</label>
+                <input type="checkbox" id="checkbox_vehicle3" name="vehicle3" value="Boat"/>
+            </div>
+            <div>
+                <label for="fcolor">Type: color</label>
+                <input id="fcolor" name="color" type="color" value="#0000ff"/>
+            </div>
+            <div>
+                <label for="datePicker">Type: date</label>
+                <input type="date" id="datePicker" name="date" min="2023-01-01" max="2023-12-31"/>
+            </div>
+            <div>
+                <label for="fdatetime_local">Type: datetime-local</label>
+                <input type="datetime-local" id="fdatetime_local" name="datetime_local"/>
+            </div>
+            <div>
+                <label for="femail">Type: email</label>
+                <input id="femail" name="email" type="email" value="" placeholder="john.doe@acme.com"/>
+            </div>
+            <div>
+                <label for="ffile">Type: file</label>
+                <input id="ffile" name="file" type="file" name="file"/>
+            </div>
+            <div>
+                <label for="fimage">Type: image</label>
+                <input id="fimage" type="image" src="https://picsum.photos/seed/picsum/100/40.jpg" alt="Submit" title="Submit"/>
+            </div>
+            <div>
+                <label for="fmonth">Type: month</label>
+                <input id="fmonth" name="month" type="month"/>
+            </div>
+            <div>
+                <label for="fnumber">Type: number</label>
+                <input id="fnumber" name="number" type="number" value="0"/>
+            </div>
+            <div>
+                <label for="fnumber2">Type: number (0-5)</label>
+                <input id="fnumber2" name="number2" type="number" value="0" min="0" max="5"/>
+            </div>
+            <div>
+                <label for="fpassword">Type: password</label>
+                <input id="fpassword" name="password" type="password" value=""/>
+            </div>
+            <div>
+                Type: radio<br/>
+                <label for="radio_css">CSS</label>
+                <input type="radio" id="radio_css" name="radio_language" value="CSS"/>
+                <label for="radio_html">HTML</label>
+                <input type="radio" id="radio_html" name="radio_language" value="HTML"/>
+                <label for="radio_javascript">JavaScript</label>
+                <input type="radio" id="radio_javascript" name="radio_language" value="JavaScript"/>
+                <label for="radio_php">PHP</label>
+                <input type="radio" id="radio_php" name="radio_language" value="PHP"/>
+            </div>
+            <div>
+                <label for="frange">Type: range</label>
+                <input id="frange" name="range" type="range" value="42" min="0" max="50"/>
+            </div>
+            <div>
+                <label for="fsearch">Type: search</label>
+                <input id="fsearch" name="search" type="search" placeholder="search string"/>
+            </div>
+            <div>
+                <label for="ftext">Type: text</label>
+                <input id="ftext" name="text" type="text" value="" placeholder="text"/>
+            </div>
+            <div>
+                <label for="ftel">Type: tel</label>
+                <input id="ftel" name="tel" type="tel" value="" pattern="\+[0-9]+" placeholder="+49123456789"/>
+            </div>
+            <div>
+                <label for="ftime">Type: time</label>
+                <input id="ftime" name="time" type="time" value=""/>
+            </div>
+            <div>
+                <label for="furl">Type: url</label>
+                <input id="furl" name="url" type="url"/>
+            </div>
+            <div>
+                <label for="fweek">Type: week</label>
+                <input id="fweek" name="week" type="week"/>
+            </div>
+            <div style="margin-top: 10px; height: 40px;">
+                <input type="submit" value="Submit (Type: submit)"/>&nbsp;&nbsp;<input type="reset" value="Reset (Type: reset)"/>
+            </div>
+        </form>
+    </section>
+</main>
+
+<script src="../assets/js/footer.js"></script>
+
+<script>
+    const datePicker = document.getElementById('datePicker');
+    datePicker.max = new Date().toISOString().split("T")[0];
+    datePicker.value = datePicker.max;
+</script>
+</body>
+</html>

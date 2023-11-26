@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beispiel: Formular</title>
+    <meta name="author" content="Manfred Rosenboom">
+    <meta name="description" content="MVHS: HTML und CSS - Grundkurs">
+    <meta name="keywords" content="HTML, CSS">
+    <meta name="robots" content="all">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/HTML5_Logo_32.png">
+    <link rel="stylesheet" href="../assets/css/modern-normalize.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        form {
+            width: 50%;
+            padding: 5px;
+            border: 1px solid black;
+        }
+        label {
+            float: left;
+            width: 10%;
+        }
+        input {
+            width: 85%;
+        }
+        input[type="radio"] {
+            width: 20%;
+        }
+        input[type="checkbox"] {
+            width: 20%;
+        }
+        input[type="submit"], input[type="reset"] {
+            width: 30%;
+            margin: 5px;
+        }
+        input[type="submit"] {
+            float: left;
+        }
+        input[type="reset"] {
+            float: right;
+        }
+        select {
+            width: 30%;
+        }
+        textarea {
+            width: 50%;
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Beispiel: Formular</h1>
+</header>
+
+<main>
+    <section>
+        <p>
+            Diese Seite zeigt, wie man einige Formularelemente in JavaScript auswerten kann.
+        </p>
+        <form id="form" method="post" action="#" onsubmit="eval_form(); return false;"
+              onreset="clearFormAndOutput();">
+            <input type="hidden" id="fpage" name="page" value="formular.html">
+            <label for="ftext">Text*</label>
+            <input id="ftext" name="text" type="text" value="" placeholder="text" required/><br>
+            &nbsp;<br>Welches ist deine Lieblingssprache?<br>
+            <label for="radio_css">CSS</label>
+            <input type="radio" id="radio_css" name="sprache" value="CSS"/><br>
+            <label for="radio_html">HTML</label>
+            <input type="radio" id="radio_html" name="sprache" value="HTML"/><br>
+            <label for="radio_javascript">JavaScript</label>
+            <input type="radio" id="radio_javascript" name="sprache" value="JavaScript"/><br>
+            <label for="radio_php">PHP</label>
+            <input type="radio" id="radio_php" name="sprache" value="PHP"/><br>
+            &nbsp;<br>Welche Fahrzeuge benutzen Sie?<br>
+            <label for="f_auto">Auto</label>
+            <input type="checkbox" id="f_auto" name="auto" value="Auto"/><br>
+            <label for="f_fahrrad">Fahrrad</label>
+            <input type="checkbox" id="f_fahrrad" name="fahrrad" value="Fahrrad"/><br>
+            <label for="f_flugzeug">Flugzeug</label>
+            <input type="checkbox" id="f_flugzeug" name="flugzeug" value="Flugzeug"/><br>
+            <label for="f_motorrad">Motorrad</label>
+            <input type="checkbox" id="f_motorrad" name="motorrad" value="Motorrad"/><br>
+            <label for="f_zug">Zug</label>
+            <input type="checkbox" id="f_zug" name="zug" value="Zug"/><br>
+
+            &nbsp;<br>Auswahl von einem Wert<br>
+            <select id="sel_single" name="anzahl">
+                <option value="0">Bitte auswählen</option>
+                <option value="1">Eins</option>
+                <option value="2">Zwei</option>
+                <option value="3">Drei</option>
+                <option value="4">Vier</option>
+            </select><br>
+
+            &nbsp;<br>Auswahl von mehreren Werten<br>
+            <select id="sel_multiple" name="sektion[]" size="4" multiple>
+                <option value="Nord">Nord</option>
+                <option value="Süd">Süd</option>
+                <option value="Ost">Ost</option>
+                <option value="West">West</option>
+            </select><br>
+
+            <div style="margin-top: 10px; height: 40px;">
+                <input type="submit" value="Submit"/>&nbsp;&nbsp;<input type="reset" value="Reset"/>
+            </div>
+        </form>
+    </section>
+
+    <section>
+        <p>
+            Ergebnis der JavaScript Auswertung<br>
+            <textarea id="output" name="output" rows="10" cols="70" wrap="soft" required disabled></textarea><br/>
+        </p>
+    </section>
+</main>
+
+<script src="../assets/js/footer.js"></script>
+
+<script>
+    const form = document.getElementById("form");
+    const page = document.getElementById("fpage");
+    const text = document.getElementById("ftext");
+    const radio_css = document.getElementById("radio_css");
+    const radio_html = document.getElementById("radio_html");
+    const radio_javascript= document.getElementById("radio_javascript");
+    const radio_php = document.getElementById("radio_php");
+    const selectSingle = document.getElementById("sel_single");
+    const selectMultiple = document.getElementById("sel_multiple");
+    const taOutput = document.getElementById("output");
+
+    function eval_form() {
+        let output = '';
+        output += 'hidden : value: ' + page.value + '\n';
+        output += 'text   : value: ' + text.value + '\n';
+        output += 'radio  : CSS        , value: ' + radio_css.checked + '\n';
+        output += 'radio  : HTML       , value: ' + radio_html.checked + '\n';
+        output += 'radio  : JavaScript , value: ' + radio_javascript.checked + '\n';
+        output += 'radio :  PHP        , value: ' + radio_php.checked + '\n';
+        output += 'select single       , value: ' + selectSingle.value;
+        if (selectSingle.value > 0) {
+            output += ' (' + selectSingle.options[selectSingle.selectedIndex].text + ')\n';
+        }
+        else {
+            output += '\n';
+        }
+        output += 'select multiple\n';
+        for (const opt of selectMultiple.options) {
+            if (opt.selected) {
+                output += '    ' + opt.value + '\n';
+            }
+        }
+
+        taOutput.value = output;
+    }
+
+    function clearFormAndOutput() {
+        taOutput.value = '';
+        form.reset();
+    }
+</script>
+</body>
+</html>

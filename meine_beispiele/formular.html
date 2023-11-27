@@ -85,13 +85,21 @@
             <label for="f_zug">Zug</label>
             <input type="checkbox" id="f_zug" name="zug" value="Zug"/><br>
 
-            &nbsp;<br>Auswahl von einem Wert<br>
-            <select id="sel_single" name="anzahl">
-                <option value="0">Bitte auswählen</option>
+            &nbsp;<br>Bitte einen Wert auswählen<br>
+            <select id="sel_single" name="anzahl" size="4">
                 <option value="1">Eins</option>
                 <option value="2">Zwei</option>
                 <option value="3">Drei</option>
                 <option value="4">Vier</option>
+            </select><br>
+
+            &nbsp;<br>
+            <select id="sel_single2" name="anzahl">
+                <option value="0" selected disabled>Bitte einen Wert auswählen</option>
+                <option value="1">Eins2</option>
+                <option value="2">Zwei2</option>
+                <option value="3">Drei2</option>
+                <option value="4">Vier2</option>
             </select><br>
 
             &nbsp;<br>Auswahl von mehreren Werten<br>
@@ -127,6 +135,7 @@
     const radio_javascript= document.getElementById("radio_javascript");
     const radio_php = document.getElementById("radio_php");
     const selectSingle = document.getElementById("sel_single");
+    const selectSingle2 = document.getElementById("sel_single2");
     const selectMultiple = document.getElementById("sel_multiple");
     const taOutput = document.getElementById("output");
 
@@ -138,12 +147,19 @@
         output += 'radio  : HTML       , value: ' + radio_html.checked + '\n';
         output += 'radio  : JavaScript , value: ' + radio_javascript.checked + '\n';
         output += 'radio :  PHP        , value: ' + radio_php.checked + '\n';
-        output += 'select single       , value: ' + selectSingle.value;
-        if (selectSingle.value > 0) {
+        output += 'select single       , index: ' + selectSingle.selectedIndex + '\n';
+        if (selectSingle.selectedIndex > -1) {
+            output += 'select single       , value: ' + selectSingle.value;
             output += ' (' + selectSingle.options[selectSingle.selectedIndex].text + ')\n';
+        } else {
+            output += 'select single       , value: nothing selected\n';
         }
-        else {
-            output += '\n';
+        output += 'select single2      , index: ' + selectSingle2.selectedIndex + '\n';
+        if (selectSingle2.selectedIndex > 0) {
+            output += 'select single       , value: ' + selectSingle2.value;
+            output += ' (' + selectSingle2.options[selectSingle2.selectedIndex].text + ')\n';
+        } else {
+            output += 'select single       , value: nothing selected\n';
         }
         output += 'select multiple\n';
         for (const opt of selectMultiple.options) {

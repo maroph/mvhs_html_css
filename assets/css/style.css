@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*
  * Author      : Manfred Rosenboom
- * Last Update : Wed, 22 Nov 2023 10:17 CET
+ * Last Update : Mon, 27 Nov 2023 15:16 CET
  * ---
  *
  * Einige CSS Erkenntnisse in dieser Datei verdanke ich dem Buch
@@ -57,7 +57,6 @@ header h2 {
 }
 
 main {
-    display: block;
     width: 100%;
 }
 

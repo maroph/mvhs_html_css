@@ -1,0 +1,67 @@
+body {
+    /*
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Courier New', Courier, monospace;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    font-family:'Times New Roman', Times, serif
+    font-family: Arial, Helvetica, sans-serif;
+    */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    /*
+    font-size: 1.0rem;
+    font-size: 120%;
+    */
+    font-weight: normal;
+}
+
+h1,
+h2 {
+    text-align: center;
+}
+
+h2 {
+    background-color: blue;
+    color: white;
+}
+
+p {
+    /* background-color: green; */
+    /* background-color: #0f0f0f; */
+    background-color: rgba(15, 15, 15, 0.5);
+    color: white;
+    line-height: 2.0;
+    text-indent: 2.0rem;
+}
+
+.warnung {
+    background-color: rgba(236, 96, 31, 0.616);
+    font-style: italic;
+    border: 10px solid black;
+}
+
+nav a {
+    color: green;
+    font-weight: bold;
+    font-style: italic;
+    font-variant: small-caps;
+}
+
+/* allgemein für Links */
+a {}
+
+/* für die normalen Links */
+a:link {}
+
+/* für besuchte Links */
+a:visited {}
+
+/* für Links, die den Fokus per Tastatur erhalten */
+a:focus {}
+
+/* beim Überfahren mit der Maus */
+a:hover {}
+
+/* für aktivierte Links */
+a:active {}
+
+/* a:focus, a:hover, a:active */

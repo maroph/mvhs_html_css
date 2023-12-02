@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beispiel: HTML5 Canvas: Mausposition</title>
+    <meta name="author" content="Manfred Rosenboom">
+    <meta name="description" content="MVHS: HTML und CSS - Grundkurs">
+    <meta name="keywords" content="HTML, CSS, Canvas">
+    <meta name="robots" content="all">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/HTML5_Logo_32.png">
+    <link rel="stylesheet" href="../assets/css/modern-normalize.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<header>
+    <h1>Beispiel: HTML5 Canvas: Mausposition</h1>
+</header>
+
+<main>
+    <section>
+        <h2>HTML5 Canvas: Anzeigen der Mausposition</h2>
+        <p>
+            Es wird die jeweilige Mausposition (Koordinaten) auf einem HTML5 Canvas angezeigt.
+        </p>
+
+        <p>
+            <canvas id="canvas" width="600" height="400" style="border: 1px solid black; cursor: crosshair;"></canvas>
+        </p>
+
+        <p>
+            Dieses Beispiel basiert auf dem folgenden Code: <a href="https://jsbin.com/opuhiy/2/edit">https://jsbin.com/opuhiy/2/edit</a>.
+        </p>
+    </section>
+</main>
+
+<script src="../assets/js/footer.js"></script>
+<script>
+    function writeMessage(canvas, message) {
+        let context = canvas.getContext('2d');
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.font = '18pt Calibri';
+        context.fillStyle = 'black';
+        context.fillText(message, 10, 25);
+    }
+
+    function getMousePos(canvas, evt) {
+        // return relative mouse position
+        let mouseX = evt.clientX - canvas.offsetLeft;
+        let mouseY = evt.clientY - canvas.offsetTop;
+        return {
+            x:mouseX,
+            y:mouseY
+        };
+    }
+
+    function initCanvas() {
+        let canvas = document.getElementById('canvas');
+        writeMessage(canvas, 'Mouse position: ');
+
+        canvas.addEventListener('mousemove', function (evt) {
+            let mousePos = getMousePos(canvas, evt);
+            let message = "Mouse position: " + mousePos.x + "," + mousePos.y;
+            writeMessage(canvas, message);
+
+
+        }, false);
+    }
+
+    window.addEventListener("load", initCanvas, false);
+</script>
+</body>
+</html>

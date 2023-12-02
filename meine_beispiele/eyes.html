@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beispiel: Following Eyes</title>
+    <meta name="author" content="Manfred Rosenboom">
+    <meta name="description" content="MVHS: HTML und CSS - Grundkurs">
+    <meta name="keywords" content="HTML, CSS">
+    <meta name="robots" content="all">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/HTML5_Logo_32.png">
+    <link rel="stylesheet" href="../assets/css/modern-normalize.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="./eyes.js"></script>
+</head>
+<body>
+<header>
+    <h1>Beispiel: Following Eyes</h1>
+</header>
+
+<main>
+    <section>
+        <h2>HTML5 Canvas: Following Eyes</h2>
+        <div id="eyes" style="margin-left: 10rem; width: fit-content"></div>
+        <hr style="margin-top: 2rem;">
+        <p>
+            Diesen Code habe ich 2013 gefunden. Da es diese Seite nicht mehr gibt, hier der Link auf diese Seite über
+            die <a href="https://web.archive.org/" rel="nofollow" target="_blank">WayBackMachine</a>:
+            <a href="https://web.archive.org/web/20130513140218/http://eminkura.com/blog/2012/03/04/following-eyes-with-html5-canvas/"
+               rel="nofollow" target="_blank">Following Eyes (with HTML5 Canvas)</a>.
+        </p>
+    </section>
+</main>
+
+<script src="../assets/js/footer.js"></script>
+<script>
+    let guy = new Guy({
+        id : 'eyes'
+    });
+    guy.domElement.style.background = '#f0f0f0';
+    guy.domElement.style.border     = '1px solid black';
+</script>
+</body>
+</html>

@@ -44,6 +44,14 @@
 
     ctx.fillText("Hier klicken, um ein Snapshot des Videostreams zu erzeugen", 20, 120);
 
+    video.addEventListener('contextmenu', event => {
+        event.preventDefault();
+    });
+    canvas.addEventListener('contextmenu', event => {
+        event.preventDefault();
+    });
+
+
     function snapshot() {
         ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
     }
@@ -63,7 +71,7 @@
                     .then(function (stream) {
                         video.srcObject = stream;
                     })
-                    .catch(function (err0r) {
+                    .catch(function (error) {
                         console.log("Something went wrong!");
                     });
         }

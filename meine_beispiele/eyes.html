@@ -34,6 +34,10 @@
 
 <script src="../assets/js/footer.js"></script>
 <script>
+    document.getElementById('eyes').addEventListener('contextmenu', event => {
+        event.preventDefault();
+    });
+
     let guy = new Guy({
         id : 'eyes'
     });

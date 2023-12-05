@@ -85,7 +85,7 @@
                     description.innerHTML += '<p><strong>Copyright: </strong>' + response.copyright + '</p>';
                 }
             } else {
-                if (xhr.status != 0) {
+                if (xhr.status !== 0) {
                     title.innerHTML = '<p><strong>Error: ' + xhr.status + '</strong></p>';
                     image.src = '';
                     image.title='';

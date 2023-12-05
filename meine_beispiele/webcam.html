@@ -73,10 +73,6 @@
         console.log("getUserMedia API not supported, or another application is using the webcam !");
     }
 
-    navigator.getUserMedia = (navigator.getUserMedia ||
-            navigator.webkitGetUserMedia ||
-            navigator.mozGetUserMedia ||
-            navigator.msGetUserMedia);
     if (navigator.getUserMedia) {
         navigator.getUserMedia({video:true, audio:false}, onSuccess, onError);
     }

@@ -33,7 +33,7 @@
         <button onclick="document.getElementById('player').pause()">Pause</button>
         <button onclick="audioVolumeUp();">Vol+ </button>
         <button onclick="audioVolumeDown();">Vol- </button>
-        <hr style="margin-left:0px;width:400px;">
+        <hr style="margin-left:0;width:400px;">
 
         <p>
             Courtsey by <a href="https://musiclub.web.cern.ch/MusiClub/bands/cernettes/" target="blank" rel="noreferrer">Les Horribles Cernettes</a>.
@@ -44,12 +44,12 @@
 <script src="../assets/js/footer.js"></script>
 
 <script>
-    var player = document.getElementById('player');
+    let player = document.getElementById('player');
     function audioVolumeUp() {
         if (player.paused) {
             return;
         }
-        var volume = player.volume;
+        let volume = player.volume;
         volume += 0.1;
         if (volume > 1) {
             volume = 1;
@@ -60,7 +60,7 @@
         if (player.paused) {
             return;
         }
-        var volume = player.volume;
+        let volume = player.volume;
         volume -= 0.1;
         if (volume < 0) {
             volume = 0;

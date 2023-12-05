@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beispiel: Canvas: Ellipse</title>
+    <meta name="author" content="Manfred Rosenboom">
+    <meta name="description" content="MVHS: HTML und CSS - Grundkurs">
+    <meta name="keywords" content="HTML, CSS, Canvas, Ellipse">
+    <meta name="robots" content="all">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/HTML5_Logo_32.png">
+    <link rel="stylesheet" href="../assets/css/modern-normalize.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<header>
+    <h1>Beispiel: Canvas: Zeichnen einer Ellipse</h1>
+</header>
+
+<main>
+    <section>
+        <p>
+            Zeichnen einer Ellipse: linke/rechte Maustaste gedrückt halten.
+        </p>
+        <canvas id="canvas" width="600" height="400" style="border: 1px solid black; cursor: crosshair;"></canvas>
+    </section>
+</main>
+
+<script src="../assets/js/footer.js"></script>
+<script>
+    let canvas;
+    let context;
+    let drawing = false;
+    let lastMousePos;
+
+    function getMousePos(canvas, evt) {
+        // return relative mouse position
+        let mouseX = evt.clientX - canvas.offsetLeft;
+        let mouseY = evt.clientY - canvas.offsetTop;
+        return {
+            x: mouseX,
+            y: mouseY
+        };
+    }
+
+    function drawEllipse(centerPos, mousePos) {
+        let width = 2 * Math.abs(centerPos.x - mousePos.x);
+        if (width === 0) width = 2;
+        let height = 2 * Math.abs(centerPos.y - mousePos.y);
+        if (height === 0) height = 2;
+        let radius = Math.sqrt(Math.pow(centerPos.x - mousePos.x, 2) + Math.pow(centerPos.y - mousePos.y, 2));
+        let circumference = Math.max(width, height);
+        let scaleX = width / circumference;
+        let scaleY = height / circumference;
+
+        context.save();
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.beginPath();
+        context.translate(centerPos.x, centerPos.y);
+        context.scale(scaleX, scaleY);
+        context.lineWidth = 3;
+        context.arc(0, 0, radius, 0, 2 * Math.PI, false);
+        context.stroke();
+        context.closePath();
+        context.restore();
+    }
+
+    function initCanvas() {
+        canvas = document.getElementById('canvas');
+        context = canvas.getContext('2d');
+
+        canvas.addEventListener('contextmenu', event => {
+            event.preventDefault();
+        });
+
+        canvas.addEventListener('mousedown', function (evt) {
+            lastMousePos = getMousePos(canvas, evt);
+            drawing = true;
+        }, false);
+        canvas.addEventListener('mousemove', function (evt) {
+            if (!drawing) {
+                return;
+            }
+            let mousePos = getMousePos(canvas, evt);
+            drawEllipse(lastMousePos, mousePos);
+        }, false);
+        canvas.addEventListener('mouseup', function (evt) {
+            let mousePos = getMousePos(canvas, evt);
+            drawEllipse(lastMousePos, mousePos);
+            drawing = false;
+        }, false);
+    }
+
+    window.addEventListener("load", initCanvas, false);
+</script>
+</body>
+</html>

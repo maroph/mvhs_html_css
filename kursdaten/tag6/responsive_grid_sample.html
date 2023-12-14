@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="responsive grid layout">
+    <meta name="keywords" content="HTML5, CSS, grid">
+    <title>Responsive Grid Beispiel 3</title>
+    <style>
+        *,
+        ::before,
+        ::after {
+            box-sizing: border-box;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-areas:
+                "header header"
+                "navigation navigation"
+                "content sidebar"
+                "footer footer";
+            grid-template-columns: 69% 29%;
+        }
+
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 100%;
+            line-height: 1.4;
+            max-width: 960px;
+            margin: auto;
+            background: white;
+        }
+
+        body > nav {
+            position: sticky;
+            top: 0;
+            grid-area: navigation;
+            background-color: #333;
+            color: white;
+            margin: 0;
+            padding: 0;
+            font-weight: normal;
+            font-size: 110%;
+        }
+
+        body > nav > ul {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        body > nav > ul > li {
+            flex: 1;
+            max-width: 10rem;
+            text-align: center;
+            border-left: 1px solid black;
+        }
+
+        body > nav > ul > li:last-child {
+            border-right: 1px solid black;
+        }
+
+        body > nav > ul > li > a {
+            display: block;
+            text-decoration: none;
+            color: white;
+            /* padding: 0.8rem 0.8rem 0 0; */
+            padding-right: 0.8rem;
+            transition: all 400ms ease;
+        }
+
+        body > nav > ul > li > a:link {
+        }
+
+        body > nav > ul > li > a:visited {
+        }
+
+        body > nav > ul > li > a:focus {
+        }
+
+        body > nav > ul > li > a:hover {
+            background-color: #0077bb;
+        }
+
+        body > nav > ul > li > a:active {
+        }
+
+        body > header {
+            grid-area: header;
+        }
+
+        body > footer {
+            grid-area: footer;
+        }
+
+        body > header,
+        body > footer {
+            border-radius: 7px;
+            background-color: #00008b;
+            color: white;
+        }
+
+        body > header {
+            margin: 0.5rem 0;
+        }
+
+        body > header > h1 {
+            margin: 0.3rem 0 0 0;
+            padding: 0;
+        }
+
+        body > footer {
+            margin: 0.5rem 0;
+        }
+
+        body > header > nav {
+            margin: 0;
+            padding: 0;
+            font-weight: bold;
+            font-size: 120%;
+            border-bottom: 1px solid white;
+        }
+
+        body > header > nav > ul {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        body > header > nav > ul > li > a {
+            display: block;
+            text-decoration: none;
+            color: lightsteelblue;
+            padding: 0.8rem 0.8rem 0.8rem 0;
+        }
+
+        body > header > nav a:link {
+        }
+
+        body > header > nav a:visited {
+        }
+
+        body > header > nav a:focus {
+        }
+
+        body > header > nav a:hover {
+        }
+
+        body > header > nav a:active {
+        }
+
+        main {
+            grid-area: content;
+            margin-right: 0.5rem;
+        }
+
+        section > header,
+        section > footer {
+            background-color: yellow;
+            width: fit-content;
+        }
+
+        article > header,
+        article > footer {
+            background-color: green;
+            width: fit-content;
+        }
+
+        aside {
+            grid-area: sidebar;
+            margin: 0;
+            padding-left: 0.5rem;
+            /*
+            border: 1px solid black;
+            border-radius: 7px;
+             */
+            background-color: #fefefe;
+            height: fit-content;
+        }
+
+        aside > ul {
+            padding-left: 1.5rem;
+        }
+
+        .current {
+            background: #666;
+            color: white;
+            text-decoration: underline;
+        }
+
+        .nav_about {
+            margin-left: auto;
+        }
+
+
+        @media all and (max-width: 50em) {
+            .grid {
+                grid-template-areas:
+                    "header"
+                    "navigation"
+                    "content"
+                    "sidebar"
+                    "footer";
+                grid-template-columns: 100%;
+            }
+
+            body > nav {
+                position: inherit;
+                top: inherit;
+            }
+
+            body > nav > ul {
+                flex-direction: column;
+            }
+
+            body > nav > ul > li {
+                text-align: left;
+                border: 0;
+            }
+            body > nav > ul > li:last-child {
+                border: 0;
+            }
+
+            aside {
+                margin-top: 0.5rem;
+                border: none;
+                border-radius: 0;
+                border-top: 1px solid black;
+            }
+
+            .nav_about {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+
+<body class="grid">
+<header>
+    <h1>Page Header</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="#" class="current">Item#1</a></li>
+        <li><a href="#">Item#2</a></li>
+        <li><a href="#">Item#3</a></li>
+        <li><a href="#">Item#4</a></li>
+        <li class="nav_about"><a href="#">About</a></li>
+    </ul>
+</nav>
+
+<main>
+    <section>
+        <header>
+            <h2>Content Header: section</h2>
+        </header>
+        <article>
+            <header>
+                <h3>Content Header: article</h3>
+            </header>
+            <p>
+                <strong style="font-size: 120%;">Goethe: Die Leiden des jungen Werther</strong>
+            </p>
+            <p>
+                Was ich von der Geschichte des armen Werther nur habe auffinden können, habe ich mit Fleiß gesammelt
+                und lege es euch hier vor, und weiß, daß ihr mir's danken werdet. Ihr könnt seinem Geist und seinem
+                Charakter eure Bewunderung und Liebe, seinem Schicksale eure Tränen nicht versagen. Und du gute Seele,
+                die du eben den Drang fühlst wie er, schöpfe Trost aus seinem Leiden, und laß das Büchlein deinen
+                Freund sein, wenn du aus Geschick oder eigener Schuld keinen näheren finden kannst.
+            </p>
+
+            <h4>Am 4. Mai 1771</h4>
+            <p>
+                Wie froh bin ich, daß ich weg bin! Bester Freund, was ist das Herz des Menschen! Dich zu verlassen,
+                den ich so liebe, von dem ich unzertrennlich war, und froh zu sein! Ich weiß, du verzeihst mir's.
+                Waren nicht meine übrigen Verbindungen recht ausgesucht vom Schicksal, um ein Herz wie das meine zu
+                ängstigen? Die arme Leonore! Und doch war ich unschuldig. Konnt' ich dafür, daß, während die
+                eigensinnigen Reize ihrer Schwester mir eine angenehme Unterhaltung verschafften, daß eine Leidenschaft
+                in dem armen Herzen sich bildete? Und doch – bin ich ganz unschuldig? Hab' ich nicht ihre Empfindungen
+                genährt? Hab' ich mich nicht an den ganz wahren Ausdrücken der Natur, die uns so oft zu lachen machten,
+                so wenig lächerlich sie waren, selbst ergetzt? Hab' ich nicht – o was ist der Mensch, daß er über sich
+                klagen darf! Ich will, lieber Freund, ich verspreche dir's, ich will mich bessern, will nicht mehr ein
+                bißchen Übel, das uns das Schicksal vorlegt, wiederkäuen, wie ich's immer getan habe; ich will das
+                Gegenwärtige genießen, und das Vergangene soll mir vergangen sein. Gewiß, du hast recht, Bester, der
+                Schmerzen wären minder unter den Menschen, wenn sie nicht – Gott weiß, warum sie so gemacht sind! –
+                mit so viel Emsigkeit der Einbildungskraft sich beschäftigten, die Erinnerungen des vergangenen Übels
+                zurückzurufen, eher als eine gleichgültige Gegenwart zu ertragen.
+            </p>
+
+            <p>
+                <strong>...</strong>
+            </p>
+            <footer>
+                Content Footer: article
+            </footer>
+        </article>
+        <footer>
+            Content Footer: section
+        </footer>
+    </section>
+</main>
+
+<aside>
+    <h2>Sidebar</h2>
+    <ul>
+        <li><a href="https://de.wikipedia.org/wiki/Johann_Wolfgang_von_Goethe" rel="nofollow"
+               target="_blank">Wikipedia: Goethe</a></li>
+        <li><a href="https://de.wikipedia.org/wiki/Die_Leiden_des_jungen_Werthers" rel="nofollow"
+               target="_blank">Wikipedia: Werther</a></li>
+        <li><a href="https://www.projekt-gutenberg.org/goethe/werther/werther.html" rel="nofollow"
+               target="_blank">Project Gutenberg: Werther</a></li>
+    </ul>
+</aside>
+
+<footer>
+    &copy; 2023 Page Footer
+</footer>
+</body>
+
+</html>

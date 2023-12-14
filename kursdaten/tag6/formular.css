@@ -1,0 +1,67 @@
+:root {
+  --mein-radius: 10px;
+}
+form {
+  max-width: 40rem;
+  padding: 2%;
+  border-radius: var(--mein-radius);
+  border: 1px solid #ddd;
+}
+
+.textfeld {
+  display: flex;
+}
+@media screen and (max-width: 500px) {
+  .textfeld {
+    display: block;
+  }
+  .textfeld label {
+    display: block;
+  }
+}
+
+.textfeld input,
+.textfeld textarea {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: var(--mein-radius);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+}
+
+.textfeld label {
+  margin: 0 2% 0 0;
+  width: 8rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.textfeld,
+.submitbutton {
+  margin: 2%;
+}
+
+.textfeld input:focus,
+.textfeld textarea:focus {
+  border-color: #66afe9;
+  outline: transparent;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset,
+    0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+.submitbutton input {
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+}
+
+.submitbutton input:hover,
+.submitbutton input:focus,
+.submitbutton input:active {
+  color: #333;
+  background-color: #e6e6e6;
+  border-color: #adadad;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kontaktformular">
+    <meta name="keywords" content="HTML5">
+    <title>Tag 6: Beispiel: Formular</title>
+    <link rel="stylesheet" href="formular.css">
+</head>
+
+<body>
+    <header>
+        <h1>Tag 6: Formular</h1>
+    </header>
+
+    <section>
+        <form>
+            <fieldset name="fieldset1" id="fieldset1">
+                <legend>Legende 1</legend>
+                <input type="radio" name="zahlungsart" id="bar" value="bar">
+                <label for="bar">Bar</label><br>
+                <input type="radio" name="zahlungsart" id="kreditkarte" value="kreditkarte">
+                <label for="kreditkarte">Kreditkarte</label>
+                <hr>
+                <select name="urlaubsziel" id="urlaubsziel">
+                    <option value="bayern43">Ammersee</option>
+                    <option value="bayern44">Chiemsee</option>
+                    <option value="bayern45">Starnberger See</option>
+                </select>
+            </fieldset>
+            <fieldset name="fieldset2" id="fieldset2">
+                <legend>Legende 2</legend>
+                <textarea name="text" id="text" cols="30" rows="10"></textarea>
+            </fieldset>
+            <div style="display:flex;justify-content: space-between;">
+                <input type="submit" value="Senden">
+                <input type="reset" value="Zurücksetzen">
+            </div>
+        </form>
+    </section>
+</body>
+
+</html>

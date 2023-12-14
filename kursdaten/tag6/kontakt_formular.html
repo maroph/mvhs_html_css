@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kontaktformular">
+    <meta name="keywords" content="HTML5">
+    <title>Tag 6: Beispiel: Kontaktformular</title>
+    <link rel="stylesheet" href="formular.css">
+</head>
+
+<body>
+    <header>
+        <h1>Tag 6: Kontaktformular</h1>
+    </header>
+
+    <section>
+        <form>
+            <div class="textfeld">
+                <label for="name">Name *</label>
+                <input type="text" name="name" id="name" placeholder="Wiley E. Coyote" required>
+            </div>
+            <div class="textfeld">
+                <label for="email">E-Mail *</label>
+                <input type="email" name="email" id="email" placeholder="wiley-e-coyote@acme-galactic.com" required>
+            </div>
+            <div class="textfeld">
+                <label for="text">Text *</label>
+                <textarea name="text" id="text" placeholder="Geben Sie hier Ihren Text ein" required></textarea>
+            </div>
+            <div class="submitbutton">
+                <input type="submit" name="submit" id="submit" value="Text Senden">
+            </div>
+        </form>
+    </section>
+</body>
+
+</html>

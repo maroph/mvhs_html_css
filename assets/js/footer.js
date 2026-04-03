@@ -24,12 +24,21 @@ if (count > 0) {
 }
 //
 /*
+const policy = trustedTypes.createPolicy("docPolicy", {
+    createHTML(string) {
+        return string
+    },
+});
+*/
+
+/*
 document.writeln('<pre>');
 document.writeln('window.location.pathname : ' + window.location.pathname);
 document.writeln('dirprefix                : ' + dirprefix);
 document.writeln('</pre>');
 */
 //
+//document.writeln(policy.createHTML('<footer>'));
 document.writeln('<footer>');
 document.write('<a href="https://validator.w3.org/nu/?doc=');
 document.write(window.location);
@@ -38,5 +47,5 @@ document.write('<a href="https://jigsaw.w3.org/css-validator/validator?uri=');
 document.write(window.location);
 document.writeln('" target="_blank"><img src="' + dirprefix + '/assets/images/valid-css-blue.png" alt="valid CSS code" title="valid CSS code"></a><br>');
 document.writeln('<a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank"><img src="' + dirprefix + '/assets/images/cc-by-sa-88x31.png" alt="CC-BY-SA 4.0" title="CC-BY-SA 4.0"></a>&nbsp;&nbsp;');
-document.write('(c) 2023-2025, <a href="https://maroph.github.io/" target="_blank" rel="noreferrer">Manfred Rosenboom</a>, Mastodon: <a href="https://mastodon.social/@maroph" rel="nofollow" target="_blank">@maroph@mastodon.social</a>');
+document.write('(c) 2023-2026, <a href="https://maroph.github.io/" target="_blank" rel="noreferrer">Manfred Rosenboom</a>, Mastodon: <a href="https://mastodon.social/@maroph" rel="nofollow" target="_blank">@maroph@mastodon.social</a>');
 document.writeln('</footer>');

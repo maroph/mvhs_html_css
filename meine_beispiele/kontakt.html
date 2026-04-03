@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beispiel: Kontakt</title>
+    <meta name="author" content="Manfred Rosenboom">
+    <meta name="description" content="MVHS: HTML und CSS - Grundkurs">
+    <meta name="keywords" content="HTML, CSS">
+    <meta name="robots" content="all">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/HTML5_Logo_32.png">
+    <link rel="stylesheet" href="../assets/css/modern-normalize.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        /* Basis */
+        form {
+            border: 1px solid black;
+            max-width: 38rem;
+            margin: 0 auto;
+            padding: 2rem;
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.5;
+        }
+
+        /* Feldgruppen */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Labels */
+        label {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        /* Eingabefelder */
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid #d1d5db;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            color: #1a1a1a;
+            background: #fff;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        /* Fokuszustand */
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+
+        /* Validierungsfarben */
+        input:valid:not(:placeholder-shown) {
+            border-color: #16a34a;
+        }
+
+        input:invalid:not(:placeholder-shown):not(:focus) {
+            border-color: #dc2626;
+        }
+
+        /* Textarea */
+        textarea {
+            resize: vertical;
+            min-height: 10rem;
+        }
+
+        /* Datenschutzhinweis */
+        .form-privacy p {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+
+        .form-privacy a {
+            color: #2563eb;
+            text-decoration: underline;
+        }
+
+        /* Absendebutton */
+        button[type="submit"] {
+            width: 100%;
+            text-align: center;
+            display: inline-block;
+            padding: 0.875rem 2rem;
+            background: #2563eb;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.1s ease;
+        }
+
+        button[type="submit"]:hover {
+            background: #1d4ed8;
+            transform: translateY(-1px);
+        }
+
+        button[type="submit"]:active {
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            form {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Beispiel: Kontakt-Formular</h1>
+</header>
+
+<main>
+    <section>
+        <form action="/kontakt" method="post">
+            <div class="form-group">
+                <label for="name">Name *</label>
+                <input type="text" id="name" name="name"
+                       required autocomplete="name"
+                       placeholder="Ihr Name">
+            </div>
+
+            <div class="form-group">
+                <label for="email">E-Mail-Adresse *</label>
+                <input type="email" id="email" name="email"
+                       required autocomplete="email"
+                       placeholder="ihre@adresse.de">
+            </div>
+
+            <div class="form-group">
+                <label for="telefon">Telefon (optional)</label>
+                <input type="tel" id="telefon" name="telefon"
+                       autocomplete="tel"
+                       placeholder="+49 123 456789">
+            </div>
+
+            <div class="form-group">
+                <label for="betreff">Betreff</label>
+                <input type="text" id="betreff" name="betreff"
+                       placeholder="Worum geht es?">
+            </div>
+
+            <div class="form-group">
+                <label for="nachricht">Ihre Nachricht *</label>
+                <textarea id="nachricht" name="nachricht"
+                          required rows="8"
+                          placeholder="Beschreiben Sie Ihr Anliegen..."></textarea>
+            </div>
+
+            <div class="form-group form-privacy">
+                <p>Mit dem Absenden stimmen Sie unserer
+                    <a href="/datenschutz">Datenschutzerklärung</a> zu.</p>
+            </div>
+
+            <button type="submit">Nachricht senden</button>
+        </form>
+
+        <hr>
+
+        <p>
+            Der hier gezeigte Code basiert auf dem Dr.Web Artikel
+            <a href="https://www.drweb.de/kontaktformular-html-css/">Kontaktformular erstellen: HTML, CSS und sonst nichts?</a>.
+        </p>
+    </section>
+</main>
+
+<script src="../assets/js/footer.js"></script>
+</body>
+</html>

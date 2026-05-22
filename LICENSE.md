@@ -1,4 +1,4 @@
-![CC-BY 4.0](assets/images/cc-by-sa-88x31.png)
+![CC-BY 4.0](assets/images/cc-by-88x31.png)
 
 This work is licensed under a
 Creative Commons Attribution 4.0 International License:

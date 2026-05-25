@@ -12,15 +12,15 @@
     <link rel="stylesheet" href="../assets/css/modern-normalize.css">
     <link rel="stylesheet" href="../assets/css/style.css">
     <style>
-         /* Tooltip Container */
-         .tooltip {
-             position: relative;
-             display: inline-block;
-             cursor: pointer;
-             text-decoration-line: underline;
-             text-decoration-style: dotted;
-             text-decoration-color: black;
-         }
+        /* Tooltip Container */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+           cursor: pointer;
+            text-decoration-line: underline;
+            text-decoration-style: dotted;
+            text-decoration-color: black;
+        }
 
         /* Tooltip Text */
         .tooltip .tooltiptext {
@@ -50,6 +50,17 @@
             text-decoration-line: underline;
             text-decoration-style: dashed;
             text-decoration-color: black;
+        }
+        button[popovertarget] {
+            border: 0 solid black;
+            color: green;
+            background-color: inherit;
+            margin: 0;
+            padding: 0;
+        }
+        [popover] {
+            background-color: #fafafa;
+            border: 1px solid black;
         }
     </style>
 </head>
@@ -99,6 +110,13 @@
         Durch klicken auf den obigen Text wird dieser Text sichtbar.
     </p>
 </details>
+
+<h2>Tooltip: popover</h2>
+
+<p>
+    Dies ist ein <button popovertarget="t1" title="Tooltip mit popover">Tooltip</button>.
+    <span id="t1" popover>Es werden die button Attribute popovertarget und popover verwendet.</span>
+</p>
 
 <p>&nbsp;</p>
 

@@ -17,8 +17,16 @@
             width: 792px;
             height: 599px
         }
-        .tt {
+        button[popovertarget] {
+            border: 0 solid black;
             color: green;
+            background-color: inherit;
+            margin: 0;
+            padding: 0;
+        }
+        [popover] {
+            background-color: #fafafa;
+            border: 1px solid black;
         }
         @media screen and (max-width: 810px) {
             iframe {
@@ -45,7 +53,8 @@
         </p>
 
         <p>
-            <span class="tt" title="lasst mich">Lasciatemi</span> cantare<br/>
+            <button popovertarget="t1" title="lasst mich">Lasciatemi</button> cantare
+            <span id="t1" popover>lasst mich</span><br/>
             con la chitarra in mano<br/>
             lasciatemi cantare<br/>
             sono un italiano.
@@ -53,9 +62,11 @@
 
         <p>
             Buongiorno Italia, gli spaghetti al dente<br/>
-            e un partigiano come <span class="tt" title="Sandro Pertini">Presidente</span><br/>
+            e un partigiano come <button popovertarget="t2" title="Sandro Pertini">Presidente</button>
+            <span id="t2" popover><a href="https://de.wikipedia.org/wiki/Sandro_Pertini" rel="nofollow" target="_blank">Sandro Pertini</a></span><br/>
             con l'autoradio sempre nella mano destra<br/>
-            e un <span class="tt" title="Kanarienvogel">canarino</span> sopra la finestra.
+            e un <button popovertarget="t3" title="Kanarienvogel">canarino</button> sopra la finestra.
+            <span id="t3" popover>Kanarienvogel</span>
         </p>
 
         <p>
@@ -63,14 +74,17 @@
             con troppa America sui manifesti<br/>
             con le canzoni con amore<br/>
             con il cuore<br/>
-            con più donne sempre meno <span class="tt" title="Nonnen">suore</span>.
+            con più donne sempre meno <button popovertarget="t4" title="Nonnen">suore</button>.
+            <span id="t4" popover>Nonnen</span><br/>
         </p>
 
         <p>
             Buongiorno Italia, buongiorno Maria<br/>
-            <span class="mit wehmütigem Blick" title="tip">con gli occhi pieni di malinconia</span><br/>
+            <button popovertarget="t5" title="mit wehmütigem Blick">con gli occhi pieni di malinconia</button>
+            <span id="t5" popover>mit wehmütigem Blick</span><br/>
             Buongiorno Dio<br/>
-            <span class="tt" title="du weißt doch, dass ich auch da bin.">lo sai che ci sono anch'io</span>.
+            <button popovertarget="t6" title="du weißt doch, dass ich auch da bin">lo sai che ci sono anch'io</button>.
+            <span id="t6" popover>du weißt doch, dass ich auch da bin</span><br/>
         </p>
 
         <p>
@@ -82,23 +96,31 @@
 
         <p>
             Lasciatemi cantare<br/>
-            <span class="tt" title="denn ich bin stolz darauf">perché ne sono fiero</span><br/>
+            <button popovertarget="t7" title="denn ich bin stolz darauf">perché ne sono fiero</button>
+            <span id="t7" popover>denn ich bin stolz darauf</span><br/>
             sono un italiano<br/>
             un italiano vero.
         </p>
 
         <p>
-            Buongiorno Italia <span class="tt" title="das sich nicht einschüchtern lässt">che non si spaventa</span><br/>
-            e con la <span class="tt" title="Rasiercreme mit Minze">crema da barba alla menta</span><br/>
-            con un <span class="tt" title="blau gestreifter Anzug">vestito gessato sul blu</span><br/>
-            e la <span class="tt" title="Spielzusammenfassung (Fußball)">moviola</span> la domenica in TV.
+            Buongiorno Italia <button popovertarget="t8" title="das sich nicht einschüchtern lässt">che non si spaventa</button>
+            <span id="t8" popover>das sich nicht einschüchtern lässt</span><br/>
+            e con la <button popovertarget="t9" title="Rasiercreme mit Minze">crema da barba alla menta</button>
+            <span id="t9" popover>Rasiercreme mit Minze</span><br/>
+            con un <button popovertarget="t10" title="blau gestreifter Anzug">vestito gessato sul blu</button>
+            <span id="t10" popover>blau gestreifter Anzug</span><br/>
+            e la <button popovertarget="t11" title="Spielzusammenfassung (Fußball)">moviola</button> la domenica in TV.
+            <span id="t11" popover>Spielzusammenfassung (Fußball)</span><br/>
         </p>
 
         <p>
             Buongiorno Italia col caffè ristretto<br/>
-            <span class="tt" title="die neuen Socken in der obersten Schublade">le calze nuove nel primo cassetto</span><br/>
-            con <span class="tt" title="die Flagge in der Reinigung">la bandiera in tintoria</span><br/>
-            e <span class="tt" title="einem verbeulten/rostigen Fiat 600 (Seicento)">una 600 giù di carrozzeria</span>.
+            <button popovertarget="t12" title="die neuen Socken in der obersten Schublade">le calze nuove nel primo cassetto</button>
+            <span id="t12" popover>die neuen Socken in der obersten Schublade</span><br/>
+            con <button popovertarget="t13" title="die Flagge in der Reinigung">la bandiera in tintoria</button>
+            <span id="t13" popover>die Flagge in der Reinigung</span><br/>
+            e <button popovertarget="t14" title="einem verbeulten/rostigen Fiat 600 (Seicento)">una 600 giù di carrozzeria</button>.
+            <span id="t14" popover>einem verbeulten/rostigen <a href="https://de.wikipedia.org/wiki/Fiat_600_(1955%E2%80%931969)" rel="nofollow" target="_blank">Fiat 600 (Seicento)</a></span><br/>
         </p>
 
         <p>

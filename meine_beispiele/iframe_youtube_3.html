@@ -17,8 +17,16 @@
             width: 714px;
             height: 694px
         }
-        .tt {
+        button[popovertarget] {
+            border: 0 solid black;
             color: green;
+            background-color: inherit;
+            margin: 0;
+            padding: 0;
+        }
+        [popover] {
+            background-color: #fafafa;
+            border: 1px solid black;
         }
         @media screen and (max-width: 730px) {
             iframe {
@@ -47,14 +55,16 @@
         </p>
 
         <p>
-            <span class="tt" title="Auf dem Markt im Osten hat mir mein Vater eine Maus für 2 Geldstücke gekauft">Alla fiera dell'est, per due soldi<br/>
-                Un topolino mio padre comprò</span><br/>
+            <button popovertarget="t1" title="Auf dem Markt im Osten hat mir mein Vater eine Maus für 2 Geldstücke gekauft">Alla fiera dell'est, per due soldi<br/>
+                Un topolino mio padre comprò</button>
+            <span id="t1" popover>Auf dem Markt im Osten hat mir mein Vater eine Maus für 2 Geldstücke gekauft</span><br/>
             Alla fiera dell'est, per due soldi<br/>
             Un topolino mio padre comprò
         </p>
 
         <p>
-            <span class="tt" title="Dann kam die Katze und fraß die Maus">E venne il gatto, che si mangiò il topo</span><br/>
+            <button popovertarget="t2" title="Dann kam die Katze und fraß die Maus">E venne il gatto, che si mangiò il topo</button>
+            <span id="t2" popover>Dann kam die Katze und fraß die Maus</span><br/>
             Che al mercato mio padre comprò<br/>
             E venne il gatto, che si mangiò il topo<br/>
             Che al mercato mio padre comprò
@@ -66,7 +76,8 @@
         </p>
 
         <p>
-            <span class="tt" title="Dann kam der Hund und biss die Katze">E venne il cane, che morse il gatto</span><br/>
+            <button popovertarget="t3" title="Dann kam der Hund und biss die Katze">E venne il cane, che morse il gatto</button>
+            <span id="t3" popover>Dann kam der Hund und biss die Katze</span><br/>
             Che si mangiò il topo<br/>
             Che al mercato mio padre comprò
         </p>
@@ -77,7 +88,8 @@
         </p>
 
         <p>
-            <span class="tt" title="Dann kam der Stock, der den Hund schlug">E venne il bastone, che picchiò il cane</span><br/>
+            <button popovertarget="t4" title="Dann kam der Stock, der den Hund schlug">E venne il bastone, che picchiò il cane</button>
+            <span id="t4" popover>Dann kam der Stock, der den Hund schlug</span><br/>
             Che morse il gatto, che si mangiò il topo<br/>
             Che al mercato mio padre comprò
         </p>
@@ -88,7 +100,8 @@
         </p>
 
         <p>
-            <span class="tt" title="Dann kam das Feuer, das den Stock verbrannte">E venne il fuoco, che bruciò il bastone</span><br/>
+            <button popovertarget="t5" title="Dann kam das Feuer, das den Stock verbrannte">E venne il fuoco, che bruciò il bastone</button>
+            <span id="t5" popover>Dann kam das Feuer, das den Stock verbrannte</span><br/>
             Che picchiò il cane, che morse il gatto<br/>
             Che si mangiò il topo<br/>
             Che al mercato mio padre comprò
@@ -100,7 +113,8 @@
         </p>
 
         <p>
-            <span class="tt" title="Dann kam das Wasser, das das Feuer löschte">E venne l'acqua, che spense il fuoco</span><br/>
+            <button popovertarget="t6" title="Dann kam das Wasser, das das Feuer löschte">E venne l'acqua, che spense il fuoco</button>
+            <span id="t6" popover>Dann kam das Wasser, das das Feuer löschte</span><br/>
             Che bruciò il bastone, che picchiò il cane<br/>
             Che morse il gatto, che si mangiò il topo<br/>
             Che al mercato mio padre comprò
@@ -112,7 +126,8 @@
         </p>
 
         <p>
-            <span class="tt" title="Dann kam der Stier und trank das Wasser">E venne il toro, che bevve l'acqua</span><br/>
+            <button popovertarget="t7" title="Dann kam der Stier und trank das Wasser">E venne il toro, che bevve l'acqua</button>
+            <span id="t7" popover>Dann kam der Stier und trank das Wasser</span><br/>
             Che spense il fuoco, che bruciò il bastone<br/>
             Che picchiò il cane, che morse il gatto<br/>
             Che si mangiò il topo<br/>
@@ -125,7 +140,8 @@
         </p>
 
         <p>
-            <span class="tt" title="Dann kam der Metzger und schlachtete den Stier">E venne il macellaio, che uccise il toro</span><br/>
+            <button popovertarget="t8" title="Dann kam der Metzger und schlachtete den Stier">E venne il macellaio, che uccise il toro</button>
+            <span id="t8" popover>Dann kam der Metzger und schlachtete den Stier</span><br/>
             Che bevve l'acqua, che spense il fuoco<br/>
             Che bruciò il bastone, che picchiò il cane<br/>
             Che morse il gatto, che si mangiò il topo<br/>
@@ -133,7 +149,8 @@
         </p>
 
         <p>
-            <span class="tt" title="Dann kam der Engel des Todes über den Metzger">E l'Angelo della morte, sul macellaio</span><br/>
+            <button popovertarget="t9" title="Der Engel des Todes kam über den Metzger">E l'Angelo della morte, sul macellaio</button>
+            <span id="t9" popover>Der Engel des Todes kam über den Metzger</span><br/>
             Che uccise il toro, che bevve l'acqua<br/>
             Che spense il fuoco, che bruciò il bastone<br/>
             Che picchiò il cane, che morse il gatto<br/>
@@ -147,7 +164,8 @@
         </p>
 
         <p>
-            <span class="tt" title="Und schließlich kam der Herr über den Engel des Todes">E infine il Signore, sull'Angelo della morte</span><br/>
+            <button popovertarget="t10" title="Und schließlich kam der Herr über den Engel des Todes">E infine il Signore, sull'Angelo della morte</button>
+            <span id="t10" popover>Und schließlich kam der Herr über den Engel des Todes</span><br/>
             Sul macellaio, che uccise il toro<br/>
             Che bevve l'acqua, che spense il fuoco<br/>
             Che bruciò il bastone, che picchiò il cane<br/>

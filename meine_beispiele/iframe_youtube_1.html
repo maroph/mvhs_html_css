@@ -14,9 +14,17 @@
     <style>
         iframe {
             border: 1px solid black;
+            width: 792px;
+            height: 599px
         }
         .tt {
             color: green;
+        }
+        @media screen and (max-width: 810px) {
+            iframe {
+                width: 320px;
+                height: 300px
+            }
         }
     </style>
 </head>
@@ -28,7 +36,7 @@
 <main>
     <section>
         <h2>Video</h2>
-        <iframe width="792" height="599" src="https://www.youtube.com/embed/TYtdYslLY9I" title="L&#39;italiano - Toto Cutugno Video Ufficiale" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br/>
+        <iframe loading="lazy" src="https://www.youtube.com/embed/TYtdYslLY9I" title="L&#39;italiano - Toto Cutugno Video Ufficiale" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br/>
         YouTube: <a href="https://www.youtube.com/watch?v=TYtdYslLY9I" rel="nofollow" target="_blank">Toto Cutugno: L'Italiano</a>
 
         <h2>Testo</h2>

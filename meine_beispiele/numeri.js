@@ -138,7 +138,7 @@ function checkNumber(event) {
     }
     if (found) {
         numeri.idWordCorrect.style.color = 'green';
-        numeri.idWordCorrect.value = 'correto';
+        numeri.idWordCorrect.value = 'corretto';
         numeri.idNext.focus();
     } else {
         numeri.idWordCorrect.style.color = 'red';
